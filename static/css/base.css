@@ -1,0 +1,77 @@
+body{
+	/*background: url("/static/image/bg.jpg");*/
+	/*background-size: 100% 300%;*/
+}
+
+a{
+	color:#444;
+	text-decoration:none;
+	transition: 0.2s;
+	-moz-transition:0.2s;
+	-webkit-transition:0.2s;
+	-o-transition:0.2s;
+}
+
+li{
+	list-style: none;
+}
+.logo{
+	width: 270px;
+	margin: auto;
+	margin-top: 50px;
+	color: #680;
+	font-size: 120px;
+	font-family: "文泉驿微米黑";
+}
+
+.searchcontainer{
+	margin-top: 30px;
+}
+
+.search{
+	margin: auto;
+	width: 700px;
+}
+
+.searchtext{
+	width: 594px;
+	height: 26px;
+	padding: 5px;
+	font-size: 20px;
+	margin-right: 0;
+	border: 1px solid black;
+	border-right: 0;
+	opacity: 0.9;
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 2px;
+	transition: 0.2s;
+	-moz-transition:0.2s;
+	-webkit-transition:0.2s;
+	-o-transition:0.2s;
+
+}
+.searchtext:focus{
+	opacity: 1;
+	outline: none;
+}
+
+.submit{
+	width: 100px;
+	height: 31px;
+	padding: 5px 20px;
+	font-size: 24px;
+	background-color: #680;
+	color: white;
+	margin-left: -4px;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+.submit:hover{
+	background-color: #c1d739;
+	/*opacity: 0.9;*/
+}
+
+.resultshow{
+	width: 700px;
+	margin: auto;
+}
