@@ -6,12 +6,11 @@ from tornado import httpserver
 from tornado import ioloop
 from tornado.web import RequestHandler, Application, UIModule
 from tornado.options import define, options, parse_command_line
-from urllib2 import Request, urlopen, URLError, HTTPError
+
 
 from tornado.escape import json_encode, json_decode
-from pyquery import PyQuery as py
 
-import pymongo
+# import pymongo
 
 define("port", default = 8000, help = "run on given port", type = int)
 define("debug", default = True, type = bool)
