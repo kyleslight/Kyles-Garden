@@ -1,10 +1,12 @@
 body{
-	/*background: url("/static/image/bg.jpg");*/
+	background: url("/static/image/bg.png");
 	/*background-size: 100% 300%;*/
+	margin: 0;
+	font-family: 'Open Sans','Helvetica Neue',Arial,'Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
 }
 
 a{
-	color:#444;
+	color:lightblue;
 	text-decoration:none;
 	transition: 0.2s;
 	-moz-transition:0.2s;
@@ -15,63 +17,50 @@ a{
 li{
 	list-style: none;
 }
-.logo{
-	width: 270px;
-	margin: auto;
-	margin-top: 50px;
-	color: #680;
-	font-size: 120px;
-	font-family: "文泉驿微米黑";
+
+.button{
+	background-color: rgba(102,136,0,0.9);
+	color: #CCC;
+	border-radius: 4px;
 }
 
-.searchcontainer{
-	margin-top: 30px;
-}
-
-.search{
-	margin: auto;
-	width: 700px;
-}
-
-.searchtext{
-	width: 594px;
-	height: 26px;
-	padding: 5px;
-	font-size: 20px;
-	margin-right: 0;
-	border: 1px solid black;
-	border-right: 0;
-	opacity: 0.9;
-	border-top-left-radius: 2px;
-	border-bottom-left-radius: 2px;
-	transition: 0.2s;
-	-moz-transition:0.2s;
-	-webkit-transition:0.2s;
-	-o-transition:0.2s;
-
-}
-.searchtext:focus{
-	opacity: 1;
-	outline: none;
-}
-
-.submit{
-	width: 100px;
-	height: 31px;
-	padding: 5px 20px;
-	font-size: 24px;
-	background-color: #680;
+.button:hover{
+	background-color: rgba(122, 156, 20, 0.9);
 	color: white;
-	margin-left: -4px;
-	border-top-right-radius: 2px;
-	border-bottom-right-radius: 2px;
-}
-.submit:hover{
-	background-color: #c1d739;
-	/*opacity: 0.9;*/
 }
 
-.resultshow{
-	width: 700px;
-	margin: auto;
+.headerwrap{
+	padding: 10px 0; 
+	color: white;
+	background-color: rgba(102,136,0,0.9);
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
+
+.header{
+	padding-left: 20px;
+}
+
+.logo{
+	font-size: 30px;
+}
+
+.mainwrap{
+	width: 100%;
+	margin: 20px 0 20px 0;
+	float: left;
+}
+.footerwrap{
+	float: left;
+	color: white;
+	padding: 10px 0;
+	width: 100%;
+	text-align: center;
+	background: rgba(0,0,0,0.9);
+}
+
+.center {
+	text-align: center;
+	margin: 0 auto;
+}
+

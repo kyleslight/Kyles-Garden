@@ -1,0 +1,79 @@
+.editmain{
+	/*border: 1px solid rgba(0,0,0,0.4);*/
+	border-top: 1px solid #CCC;
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	background-color: white;
+	width: 100%;
+	float: left;
+}
+
+.writingarea{
+	float: left;
+	width: 50%;
+	height: 900px;
+}
+
+.writingcontainer{
+	padding: 15px;
+	padding-right: 0;
+	padding-bottom: 0;
+	height: 899px;
+}
+
+#writing{
+	height: 100%;
+	width: 100%;
+	outline: none;
+	border: none;
+	/*padding: 10px 20px;*/
+	/*padding-bottom: 1px;*/
+	/*padding-right: 0;*/
+	font-size: 15px;
+	resize: none;
+	margin: 0;
+}
+
+.previewarea{
+	float: left;
+	width: 50%;
+	/*margin-top: 10px;*/
+}
+
+
+#previewbuffer, #preview{
+	border-left: 1px solid #CCC;
+	height: 898px;
+	padding: 10px 20px;
+	background-color: white;
+	/*box-shadow: 0 0 10px 5px rgba(0,0,0,0.5);*/
+	overflow: scroll;
+}
+
+.editoptions{
+	margin-top: 30px;
+	margin-bottom: 10px;
+	float: left;
+	width: 100%; 
+	text-align: center;
+}
+.articlepreview, .articlesubmit{
+	margin-right: -2px;
+	font-size: 30px;
+	border: 1px solid #CCC;
+	padding: 15px 60px;
+	border-radius: 10px;
+}
+
+.articlepreview{
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-right: 2px solid;
+	box-shadow: 0 0 10px rgba(102,136,0,0.9);
+}
+
+.articlesubmit{
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-left: 2px solid;
+	box-shadow: 0 0 10px rgba(102,136,0,0.9);
+}

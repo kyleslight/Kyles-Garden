@@ -12,6 +12,7 @@ from tornado.escape import json_encode, json_decode
 
 # import pymongo
 
+
 define("port", default = 8000, help = "run on given port", type = int)
 define("debug", default = True, type = bool)
 define("host", default = "localhost", type = str)
@@ -23,9 +24,13 @@ define("host", default = "localhost", type = str)
 # 		self.db = content['test_1']
 # 		Application.__init__(self, handlers, debug = True)
 
-class IndexHandler(RequestHandler):
+# class IndexHandler(RequestHandler):
+# 	def get(self):
+# 		self.render('edit.html')
+
+class EditHandler(RequestHandler):
 	def get(self):
-		self.render('index.html')
+		self.render('edit.html')
 
 # 	def write_error(self, status_code, **kwargs):
 # 		self.write("Gosh!, you have occured a %d error. What a pity" %status_code)
@@ -79,7 +84,7 @@ if __name__ == "__main__":
 	parse_command_line()
 	app = Application(
 		handlers = [
-			(r"/", IndexHandler),],
+			(r"/edit", EditHandler),],
 			# (r'/poem', PoemMakeHandler),
 			# (r'/book', BookHandler),
 			# (r'/suggestion/(\w+)', SuggestionHandler),
