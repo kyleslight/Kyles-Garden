@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	<title>浏览</title>
+{% end %}
+
+{% block describtion %}
+	<meta name="Keywords" content="浏览 Kyles' garden blog" />
+    <meta name="Description" content="Kyles' garden 的博客浏览页面" />
+{% end %}
+
+{% block custom_css %}
+	<link rel="stylesheet" type="text/css" href="{{ static_url("css/browse.css") }}">
+{% end %}
+
+{% block custom_js %}
+	<script type="text/javascript" src="{{ static_url("js/browse.js") }}"></script>
+{% end %}
+
+{% block main %}
+	<div class="browsewrap">
+		<div class="articlelist">
+			<div class="article">
+				<div class="timecontainer">
+					<li class="artyear">2014</li>
+					<li class="artdate">18</li>
+					<li class="artmonth">9月</li>
+				</div>
+				<div class="artmain">
+					<h1 class="arttitle">降级论</h1>
+					<div class="artfrom">来自  <a href="#" class="artcollection">vczh's nichijo</a> 中的文章</div>
+					<div class="artdes">几乎一年没有写博客了，说没时间那是借口，唯一的原因是，年纪越大越发觉自己肤浅。有些想法还没提笔，就发现很幼稚，就不敢发出来贻笑大方了。这次先给大家说个小故事...
+
+</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% end %}

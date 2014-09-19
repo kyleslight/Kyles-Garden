@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	<title>阅读</title>
+{% end %}
+
+{% block description %}
+	<meta name="Keywords" content="阅读 Kyles' garden blog" />
+    <meta name="Description" content="Kyles' garden 的博客阅读页面" />
+{% end %}
+
+{% block custom_css %}
+	<link rel="stylesheet" type="text/css" href="{{ static_url("css/article.css") }}">
+{% end %}
+
+{% block custom_js %}
+		<script type="text/javascript" src="{{ static_url("js/article.js") }}"></script>
+{% end %}
+
+{% block main %}
+	<div class="readareawrap">
+		<div class="readarea">
+			{% raw maintext %}
+		</div>
+	</div>
+{% end %}

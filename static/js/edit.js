@@ -2,6 +2,14 @@ $(document).ready(function(){
   	enable_tab();
 	Preview.Init();
 	Preview.Update();
+
+	$(".articlesubmit").on('click', function(){
+		var theform = document.getElementById("editdata");
+		var previewcon = document.getElementById("previewtextcontainer");
+		previewcon.innerHTML = get_preview_content();
+		console.log(previewcon.innerHTML);
+		theform.submit();
+	})
 })
 
 function enable_tab(){
@@ -30,4 +38,9 @@ function highlight_code(){
 	$('#previewbuffer code, #preview code').each(function(i, block) {
     	hljs.highlightBlock(block);
   	});
+}
+
+function get_preview_content(){
+	var content = Preview.buffer.innerHTML;
+	return content;
 }

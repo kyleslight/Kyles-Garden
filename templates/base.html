@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+	{% block title %}
+	{% end %}
+
+	{% block describtion %}
+	{% end %}
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="zh-CN" />
+
+	<link rel="stylesheet" type="text/css" href="{{ static_url("css/base.css") }}">
+	<script type="text/javascript" src="{{ static_url("js/jquery.js") }}"></script>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<script type="text/javascript" src="{{ static_url("js/marked.js") }}"></script>
+	<script type="text/javascript" src="{{ static_url("js/base.js") }}"></script>
+	<script type="text/javascript" src="{{ static_url("js/load.js") }}"></script>
+	<link rel="stylesheet" href="{{ static_url("css/monokai_sublime.min.css") }}" >
+	<script src="{{ static_url("js/highlight.js") }}"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<script type="text/javascript">
+		Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
+		Preview.callback.autoReset = true;  // make sure it can run more than once
+		Preview.Init();
+		Preview.Update();
+	</script>
+	{% block custom_css %}
+	{% end %}
+	{% block custom_js %}
+	{% end %}
+</head>
+<body>
+	<div class="wrap">
+		<!-- header -->
+		<div class="headerwrap">
+			<div class="header">
+				<div class="logo">Kyles' Garden</div>
+				<div class="leftitem">
+					<a href="/browse" class="readbutton">浏览</a>
+					<a href="/edit" class="editbutton">创作</a>
+				</div>
+				<div class="rightitem">
+					<div class="guestitem">
+						
+					</div>
+					<div class="memberitem"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- main -->
+		<div class="mainwrap">
+			{% block main %}
+			{% end %}
+		</div>
+
+		<!-- footer -->
+		<div class="footerwrap">
+			&copy; 2014&nbsp;&nbsp; Powered by 
+			<a href="#" target="_blank">Kyles Light</a>
+		</div>
+	</div>
+
+	<script type="text/x-mathjax-config">
+  		MathJax.Hub.Config({
+    		showProcessingMessages: false,
+    		tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] },
+    		TeX: { equationNumbers: {autoNumber: "AMS"} }
+  		});
+	</script>
+</body>
+</html>

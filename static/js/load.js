@@ -3,11 +3,11 @@ marked.setOptions({
 	gfm: true,
 	tables: true,
 	breaks: true,
-	pedantic: false,
+	pedantic: true,
 	sanitize: false, // IMPORTANT, because we do MathJax before markdown,
 	                   //            however we do escaping in 'CreatePreview'.
 	smartLists: true,
-	smartypants: false,
+	smartypants: true,
 });
 
 

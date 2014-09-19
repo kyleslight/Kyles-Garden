@@ -29,6 +29,7 @@
 	/*padding-bottom: 1px;*/
 	/*padding-right: 0;*/
 	font-size: 15px;
+	font-family: inherit;
 	resize: none;
 	margin: 0;
 }

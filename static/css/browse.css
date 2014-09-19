@@ -1,0 +1,58 @@
+.browsewrap{
+	width: 960px;
+	margin: 0 auto;
+}
+
+.articlelist{
+	margin-top: 20px;
+}
+
+.article{
+	float: left;
+	background-color: white;
+	border-radius: 4px;
+	border: 1px solid #CCC;
+	padding: 10px;
+	border-bottom: 2px solid #CCC;
+	margin-bottom: 10px;
+	/*box-shadow: 0 0 5px;*/
+}
+
+.timecontainer{
+	float: left;
+	width: 60px;
+	margin-top: 30px;
+	/*background-color: rgba(102, 136, 0, 0.4);*/
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 4px;
+	border: 1px solid #CCC;
+
+}
+
+.artdate{
+	font-size: 30px;
+	color: #680;
+}
+
+.artmain{
+	float: left;
+	margin-left: 10px;
+	width: 860px;
+}
+
+.arttitle{
+	margin-bottom: 0;
+}
+
+.artfrom{
+	color: #CCC;
+	font-size: 0.8em;
+}
+
+.artdes{
+	margin-top: 15px;
+	color: #888;
+	font-size: 0.9em;
+}

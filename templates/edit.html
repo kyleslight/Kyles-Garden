@@ -1,80 +1,49 @@
-<!doctype html>
-<html>
-<head>
-	<title>编辑</title>
-	
-	<link rel="stylesheet" type="text/css" href="{{ static_url("css/base.css") }}">
-	<link rel="stylesheet" type="text/css" href="{{ static_url("css/edit.css") }}">
-	<script type="text/javascript" src="{{ static_url("js/jquery.js") }}"></script>
-	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<script type="text/javascript" src="{{ static_url("js/marked.js") }}"></script>
-	<script type="text/javascript" src="{{ static_url("js/base.js") }}"></script>
-	<script type="text/javascript" src="{{ static_url("js/load.js") }}"></script>
-	<script type="text/javascript" src="{{ static_url("js/edit.js") }}"></script>
-	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/monokai_sublime.min.css">
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
-	<script type="text/javascript">
-		Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
-		Preview.callback.autoReset = true;  // make sure it can run more than once
-		Preview.Init();
-		Preview.Update();
-	</script>
-</head>
-<body>
-	<div class="wrap">
-		<div class="headerwrap">
-			<div class="header">
-				<div class="logo">Kyles' Garden</div>
-				<div class="leftitem">
-					<!-- <a href="#" class="readbutton">阅读</a> -->
-					<!-- <a href="#" class="editbutton"></a> -->
-				</div>
-				<div class="rightitem">
-					<div class="guestitem">
-						
-					</div>
-					<div class="memberitem"></div>
-				</div>
-			</div>
-		</div>
-		<div class="mainwrap">
-			<div class="editmain">
-				<div class="writingarea">
-					<div class="writingcontainer">
-					<textarea name="writing" id="writing" id="marked-mathjax-input"
-          onkeyup="Preview.Update();highlight_code();"
-          name="comment"
-          "autofocus">
-					#test
-					</textarea>
-					</div>
-				</div>
-				<div class="previewarea">
-					<div class="preview" id="preview">
-						
-					</div>
-					<div class="preview" id="previewbuffer"></div>
-				</div>
-			</div>
+{% extends "base.html" %}
 
-			<div class="editoptions">
-				<a href="#" class="articlepreview button">预览</a>
-				<a href="#" class="articlesubmit button">发布</a>
+{% block title %}
+	<title>创作</title>
+{% end %}
+
+{% block describtion %}
+	<meta name="Keywords" content="创作 Kyles' garden blog" />
+    <meta name="Description" content="Kyles' garden 的博客创作页面" />
+{% end %}
+
+{% block custom_css %}
+	<link rel="stylesheet" type="text/css" href="{{ static_url("css/edit.css") }}">
+{% end %}
+
+{% block custom_js %}
+	<script type="text/javascript" src="{{ static_url("js/edit.js") }}"></script>
+{% end %}
+
+{% block main %}
+	<div class="editmain">
+		<div class="writingarea">
+			<div class="writingcontainer">
+			<textarea name="writing" id="writing" id="marked-mathjax-input"
+  onkeyup="Preview.Update();highlight_code();"
+  name="comment"
+  "autofocus">
+			#test
+			</textarea>
 			</div>
 		</div>
-		<div class="footerwrap">
-			&copy; 2014&nbsp;&nbsp; Powered by 
-			<a href="#" target="_blank">Kyles Light</a>
-		</div>
+		<form id="editdata" name="editdata" action="/article/create" method="post">
+			<input type="text" class="arttitle none" id="arttitle">
+			<div class="previewarea">
+				<div class="preview" id="preview" >
+					
+				</div>
+				<div class="preview" id="previewbuffer"></div>
+			</div>
+			<textarea id="previewtextcontainer" name="maintext" class="none">
+			</textarea>
+		</form>
 	</div>
 
-	<script type="text/x-mathjax-config">
-  		MathJax.Hub.Config({
-    		showProcessingMessages: false,
-    		tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] },
-    		TeX: { equationNumbers: {autoNumber: "AMS"} }
-  		});
-	</script>
-</body>
-</html>
+	<div class="editoptions">
+		<a href="#" class="articlepreview button">预览</a>
+		<a href="#" class="articlesubmit button">发布</a>
+	</div>
+{% end %}
