@@ -50,6 +50,10 @@
 	overflow: scroll;
 }
 
+#preview{
+	/*display: none;*/
+}
+
 .editoptions{
 	margin-top: 30px;
 	margin-bottom: 10px;

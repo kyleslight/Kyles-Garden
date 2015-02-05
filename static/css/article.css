@@ -1,9 +1,130 @@
+.articlewrap{
+	width: 1260px;
+	margin: 0 auto;
+}
+
 .readareawrap{
 	background-color: white;
-	width: 960px;
-	padding: 15px;
-	margin: 0 auto;
-	margin-top: 2px;
+	width: 937px;
+	padding: 25px;
+	float: left;
+	margin-top: 20px;
 	border: 1px solid #CCC;
 	box-shadow: 0 0 5px #CCC;
+	border-radius: 4px;
+}
+
+.readarea li{
+	list-style: disc;
+}
+
+.articlelist{
+	float: left;
+	width: 250px;
+	margin-top: 20px;
+	margin-right: 19px;
+	background: white;
+	border-radius: 4px;
+	border: 1px solid #CCC;
+	padding-top: 20px;
+	border-bottom: 2px solid #CCC;
+	margin-bottom: 10px;
+}
+
+.book{
+	padding-bottom: 20px;
+}
+
+.collectiontitle{
+	font-size: 1.3em;
+	padding: 10px;
+}
+
+.collectionarticle{
+	padding: 10px;
+	padding-left: 15px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #CCC;
+}
+
+.articlelist a{
+	font-size: 0.9em;
+	display: block;
+	padding: 6px 10px;
+	padding-left: 10px;
+	margin-left: -15px;
+	margin-right: -10px;
+}
+
+a.article_h2{
+	padding-left: 32px;
+	font-size: 0.8em;
+}
+
+a.article_h2:hover{
+	background: rgba(230,230,230,0.9);
+}
+
+a.addanarticle{
+	padding: 10px 25px;
+}
+
+a.articlelisttitle{
+	border-top: 1px dashed #CCC;
+}
+
+a.articlelisttitle:hover{
+	background: rgba(230,230,230,0.9);
+	margin-left: -15px;
+	margin-right: -10px;
+}
+
+a.spearticlelisttitle{
+	background: rgba(102,136,0,0.5);
+	font-size: 1.1em;
+	color: white;
+	padding: 10px 20px;
+	margin-left: -15px;
+	margin-right: -10px;
+}
+
+#writing{
+	font-family: "Verdandi Modern","Georgia","Verdandi Sung";
+}
+
+#writing h1{
+	font-size: 2.5em;
+	font-family: "Verdandi Modern","Georgia","Verdandi Sung";
+}
+
+#writing h2{
+	font-size: 1.5em;
+	font-family: "Verdandi Modern","Georgia","Verdandi Sung";
+	font-weight: bold;
+	margin-top: 45px;
+}
+
+#writing h3{
+	font-size: 1.2em;
+	font-family: "Verdandi Modern","Georgia","Verdandi Sung";
+	font-weight: bolder;
+	margin-top: 30px;
+}
+
+#store_author_container{
+	display: block;
+	height: 60px;
+}
+
+#author_img{
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+	float: left;
+}
+
+#article_info_block{
+	padding: 10px 10px;
+	margin-top: -3px;
+	float: left;
 }

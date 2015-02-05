@@ -18,9 +18,35 @@
 {% end %}
 
 {% block main %}
-	<div class="readareawrap">
-		<div class="readarea">
-			{% raw maintext %}
+	<div class="articlewrap">
+		<div class="articlelist">
+			<div class="collectiontitle spefont">{{ collection['title'] }}</div>
+			<div class="collectionarticle">
+				{% for collection_article in collection_articles %}
+					{% if str(collection_article['id']) == str(aid) %}
+						<a href="/article/{{ collection_article['id'] }}" class="articlelisttitle spearticlelisttitle">{{ collection_article['title'] }}</a>
+					{% else %}
+						<a href="/article/{{ collection_article['id'] }}" class="articlelisttitle">{{ collection_article['title'] }}</a>
+					{% end %}
+				{% end %}
+			</div>
+
+			<a href="/edit/collection/{{ collection['id'] }}" class="addanarticle">Add an Article</a>
+		
+		</div>
+		<div class="readareawrap">
+			<div id="store_author" class="none">
+				<div id="store_author_container">
+					<img src="http://pic4.zhimg.com/fdd4b9c61ec8cc237eaa4a14ebb23f85_l.jpg" alt="author_img" id="author_img">
+					<span id="article_info_block">
+						<a href="/" id="author_name" class="spefont">Kyles Light</a> · 
+						<span id="article_date" class="spefont">{{ article_date }}</span>
+					</span>
+				</div>
+			</div>
+			<div id="writing">
+				{% raw maintext %}
+			</div>
 		</div>
 	</div>
 {% end %}

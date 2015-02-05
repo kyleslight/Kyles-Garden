@@ -14,7 +14,14 @@
 {% end %}
 
 {% block custom_js %}
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 	<script type="text/javascript" src="{{ static_url("js/edit.js") }}"></script>
+	<script type="text/javascript">
+		Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
+		Preview.callback.autoReset = true;  // make sure it can run more than once
+		Preview.Init();
+		Preview.Update();
+	</script>
 {% end %}
 
 {% block main %}
@@ -22,7 +29,7 @@
 		<div class="writingarea">
 			<div class="writingcontainer">
 			<textarea name="writing" id="writing" id="marked-mathjax-input"
-  onkeyup="Preview.Update();highlight_code();"
+  onkeyup="Preview.Update();"
   name="comment"
   "autofocus">
 			#test
@@ -30,15 +37,19 @@
 			</div>
 		</div>
 		<form id="editdata" name="editdata" action="/article/create" method="post">
-			<input type="text" class="arttitle none" id="arttitle">
-			<div class="previewarea">
-				<div class="preview" id="preview" >
-					
+			<input type="text" class="arttitle none" name='arttitle' id="arttitle">
+			<input type="text" class="artdes none" name='artdes' id="artdes">
+			<input type="text" class="cid none" name='cid' id='cid' value="{{ cid }}">
+			<div class="readareawrap">
+				<div class="previewarea">
+					<div class="preview" id="preview" >
+						
+					</div>
+					<div class="preview" id="previewbuffer"></div>
 				</div>
-				<div class="preview" id="previewbuffer"></div>
+				<textarea id="previewtextcontainer" name="maintext" class="none">
+				</textarea>
 			</div>
-			<textarea id="previewtextcontainer" name="maintext" class="none">
-			</textarea>
 		</form>
 	</div>
 

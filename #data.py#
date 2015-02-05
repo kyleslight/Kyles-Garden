@@ -10,13 +10,11 @@ class DatabaseHandler():
 				db = db
 			)
 
-	def execute_ins(self, ins, para):
+
 		cur = self.db.cursor()
-		result = cur.execute(ins, para)
-		print result
+		cur.execute(ins, para)
 		cur.close()
 		self.db.commit()
-		return result
 
 	def get_fetch(self, ins):
 		cur = self.db.cursor()
@@ -24,4 +22,3 @@ class DatabaseHandler():
 		result = cur.fetchall()
 		cur.close()
 		return result
-

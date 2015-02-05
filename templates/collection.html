@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	<title>浏览</title>
+{% end %}
+
+{% block describtion %}
+	<meta name="Keywords" content="浏览 Kyles' garden blog" />
+    <meta name="Description" content="Kyles' garden 的博客浏览页面" />
+{% end %}
+
+{% block custom_css %}
+	<link rel="stylesheet" type="text/css" href="{{ static_url("css/browse.css") }}">
+{% end %}
+
+{% block custom_js %}
+	<script type="text/javascript" src="{{ static_url("js/collection.js") }}"></script>
+{% end %}
+
+{% block main %}
+	<div class="browsewrap">
+		
+
+
+		
+		<div class="articlelist">
+			
+		</div>
+	</div>
+{% end %}

@@ -7,7 +7,19 @@ $(document).ready(function(){
 		var theform = document.getElementById("editdata");
 		var previewcon = document.getElementById("previewtextcontainer");
 		previewcon.innerHTML = get_preview_content();
-		console.log(previewcon.innerHTML);
+		$('#arttitle').val(get_title());
+		var description = Preview.preview.children[2].innerHTML;
+		if (Preview.preview.children[3]) {
+			description = description + Preview.preview.children[3].innerHTML;
+			if (Preview.preview.children[4]) {
+				description = description + Preview.preview.children[4].innerHTML;
+			};	
+		};
+		
+		description = description + '...';
+		
+		$('#artdes').val(description);
+		console.log(document.getElementById('arttitle').innerHTML);
 		theform.submit();
 	})
 })
@@ -40,7 +52,22 @@ function highlight_code(){
   	});
 }
 
+function center_image(){
+	$('.preview p img').parent().each(function(){
+		if($(this).html().substr(0,4) == "<img"){
+			$(this).addClass('center');
+		}else{
+			$(this).removeClass('center');
+		}
+	});
+}
+
 function get_preview_content(){
-	var content = Preview.buffer.innerHTML;
+	var content = Preview.preview.innerHTML;
 	return content;
+}
+
+function get_title(){
+	var title = Preview.preview.getElementsByTagName('h1')[0].innerHTML;
+	return title;
 }

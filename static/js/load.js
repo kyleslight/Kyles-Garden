@@ -1,5 +1,5 @@
 marked.setOptions({
-  	renderer: new marked.Renderer(),
+  renderer: new marked.Renderer(),
 	gfm: true,
 	tables: true,
 	breaks: true,
@@ -42,6 +42,7 @@ var Preview = {
     		preview.style.position = ""; 
     		preview.style.display = "";
         highlight_code();
+        center_image();
   		},
 
   //
@@ -63,7 +64,7 @@ var Preview = {
   //  If the text hasn't changed, return
   //  Otherwise, indicate that MathJax is running, and start the
   //    typesetting.  After it is done, call PreviewDone.
-  //  
+   
   		CreatePreview: function () {
     		Preview.timeout = null;
     		if (this.mjRunning) return;
@@ -85,20 +86,22 @@ var Preview = {
   //  and swap the buffers to show the results.
   //
   		PreviewDone: function () {
-    		this.mjRunning = false;
-    		text = this.buffer.innerHTML;
-    // replace occurrences of &gt; at the beginning of a new line
-    // with > again, so Markdown blockquotes are handled correctly
-    		text = text.replace(/^&gt;/mg, '>');
-    		this.buffer.innerHTML = marked (text);
-    		this.SwapBuffers();
+          this.mjRunning = false;
+          text = this.buffer.innerHTML;
+      // replace occurrences of &gt; at the beginning of a new line
+      // with > again, so Markdown blockquotes are handled correctly
+          text = text.replace(/^&gt;/mg, '>');
+          this.buffer.innerHTML = marked (text);
+          if (location.pathname.slice(0, 5) == '/edit') {
+            this.SwapBuffers();
+          };
   		},
 
   		Escape: function (html, encode) {
     		return html
       		.replace(!encode ? /&(?!#?\w+;)/g : /&/g, '&amp;')
-      		.replace(/</g, '&lt;')
-      		.replace(/>/g, '&gt;')
+      		// .replace(/</g, '&lt;')
+      		// .replace(/>/g, '&gt;')
       		.replace(/"/g, '&quot;')
      		.replace(/'/g, '&#39;');
   		}

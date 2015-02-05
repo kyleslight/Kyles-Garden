@@ -1,18 +1,139 @@
 .browsewrap{
-	width: 960px;
+	width: 1260px;
 	margin: 0 auto;
 }
 
+.booklist{
+	float: left;
+	width: 250px;
+	margin-top: 20px;
+	margin-right: 19px;
+	background: white;
+	border-radius: 4px;
+	border: 1px solid #CCC;
+	padding-top: 20px;
+	border-bottom: 2px solid #CCC;
+	margin-bottom: 10px;
+	padding-bottom: 20px;
+}
+
+.book{
+	padding-bottom: 20px;
+}
+
+.booktitle{
+	font-size: 1.3em;
+	font-weight: bold;
+	padding: 10px;
+	padding-left: 20px;
+
+	/*background: rgba(102,136,0,0.5);*/
+
+	/*color: white;*/
+	margin-bottom: 10px;
+	border-bottom: 1px dashed #CCC;
+}
+
+.bookcollect{
+	padding: 10px;
+	padding-left: 15px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #CCC;
+}
+
+.addcollectbox{
+	padding: 10px;
+}
+
+a.submitcollect{
+	background: #680;
+	width: 30px;
+	color: white;
+	padding: 5px 10px;
+	text-align: center;
+	border-radius: 4px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.bookcollect a{
+	font-size: 0.9em;
+	display: block;
+	padding: 5px 20px;
+	margin-left: -15px;
+	margin-right: -10px;
+}
+
+.booklist a:hover{
+	background: rgba(230,230,230,0.9);
+}
+
+#addbook{
+	padding-left: 25px;
+	padding-bottom: 20px;
+}
+
+#expandaddbook{
+	padding-left: 20px;
+	font-size: 0.9em;
+	color: #CCC;
+}
+
+#expandaddbook:hover{
+	background: transparent;
+	color: black;
+}
+
+#addbooktitle{
+	padding: 5px;
+	margin-left: -5px;
+	width: 120px;
+	margin-right: 10px;
+}
+
+#addbookbox{
+	padding: 5px 25px;
+}
+
+#submitbook{
+	background: #680;
+	width: 30px;
+	color: white;
+	padding: 5px 10px;
+	text-align: center;
+	border-radius: 4px;
+	margin-top: 10px;
+}
+
+a.expandaddcollect{
+	padding: 10px 25px;
+	font-size: 0.6em;
+	padding-left: 0px;
+	color: #CCC;
+	display: inline;
+}
+
+a.expandaddcollect:hover{
+	color: black;
+	background-color: transparent;
+}
+
+.addcollecttitle{
+	padding: 5px;
+}
 .articlelist{
 	margin-top: 20px;
+	float: left;
+	width: 959px;
 }
+
 
 .article{
 	float: left;
 	background-color: white;
 	border-radius: 4px;
 	border: 1px solid #CCC;
-	padding: 10px;
+	padding: 20px;
 	border-bottom: 2px solid #CCC;
 	margin-bottom: 10px;
 	/*box-shadow: 0 0 5px;*/
@@ -21,7 +142,7 @@
 .timecontainer{
 	float: left;
 	width: 60px;
-	margin-top: 30px;
+	margin-top: 27px;
 	/*background-color: rgba(102, 136, 0, 0.4);*/
 	text-align: center;
 	padding-top: 5px;
@@ -38,12 +159,20 @@
 
 .artmain{
 	float: left;
-	margin-left: 10px;
-	width: 860px;
+	margin-left: 15px;
+	width: 840px;
 }
 
 .arttitle{
 	margin-bottom: 0;
+}
+
+.arttitle a{
+	color: #333;
+}
+
+.arttitle a:hover{
+	color: #680;
 }
 
 .artfrom{
