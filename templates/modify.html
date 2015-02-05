@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block title %}
-	<title>创作</title>
+	<title>修改</title>
 {% end %}
 
 {% block describtion %}
-	<meta name="Keywords" content="创作 Kyles' garden blog" />
+	<meta name="Keywords" content="修改 Kyles' garden blog" />
     <meta name="Description" content="Kyles' garden 的博客创作页面" />
 {% end %}
 
@@ -15,7 +15,7 @@
 
 {% block custom_js %}
 	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<script type="text/javascript" src="{{ static_url("js/edit.js") }}"></script>
+	<script type="text/javascript" src="{{ static_url("js/modify.js") }}"></script>
 	<script type="text/javascript">
 		Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
 		Preview.callback.autoReset = true;  // make sure it can run more than once
@@ -32,14 +32,14 @@
   onkeyup="Preview.Update();"
   name="comment"
   "autofocus">
-			#test
+			{{ article_tobe_modify['ori_text'] }}
 			</textarea>
 			</div>
 		</div>
-		<form id="editdata" name="editdata" action="/article/create" method="post">
+		<form id="editdata" name="editdata" action="/modify/article/{{ aid }}" method="post">
 			<input type="text" class="arttitle none" name='arttitle' id="arttitle">
 			<input type="text" class="artdes none" name='artdes' id="artdes">
-			<input type="text" class="cid none" name='cid' id='cid' value="{{ cid }}">
+			<input type="text" class="cid none" name='cid' id='cid' value="{{ article_tobe_modify['collect_id'] }}">
 			<textarea class="none" name="ori_text" id="ori_text" cols="30" rows="10"></textarea>
 			<div class="readareawrap">
 				<div class="previewarea">

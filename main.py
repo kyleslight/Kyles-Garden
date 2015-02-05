@@ -87,6 +87,35 @@ class EditHandler(RequestHandler):
 	def get(self, cid):
 		self.render('edit.html', cid = cid)
 
+class ArticleTobeModifyHandler(RequestHandler):
+	def get(self, aid):
+		
+		test_database = data.DatabaseHandler("test")
+		ins = "select ori_text, collect_id from article_6 where(id = %s)" %aid
+		article_tobe_modify = test_database.fetch_one(ins)
+		self.render('modify.html', aid = aid, article_tobe_modify = article_tobe_modify)
+
+class ArticleModifyHandler(RequestHandler):
+	def post(self, aid):
+		self.modify(aid)
+
+		test_database = data.DatabaseHandler("test")
+		url = "/article/%s" %aid
+		self.redirect(url)
+
+	def modify(self, aid):
+		title = self.get_argument('arttitle').encode('utf-8')
+		maintext = self.get_argument('maintext').encode('utf-8')
+		description = self.get_argument('artdes').encode('utf-8')
+		ori_text = self.get_argument('ori_text').encode('utf-8')
+		collection_id = self.get_argument('cid')
+
+		test_database = data.DatabaseHandler("test")
+		ins = "update article_6 set title = %s, description = %s, content = %s, ori_text = %s where id = %s"
+		para = (title, description, maintext, ori_text, aid)
+		result = test_database.exe_ins(ins, para)
+
+
 class ArticleCreateHandler(RequestHandler):
 	def post(self):
 		self.create()
@@ -98,9 +127,10 @@ class ArticleCreateHandler(RequestHandler):
 		self.redirect(url)
 
 	def create(self):
-		title = self.get_argument('arttitle')
-		maintext = self.get_argument('maintext')
-		description = self.get_argument('artdes')
+		title = self.get_argument('arttitle').encode('utf-8')
+		maintext = self.get_argument('maintext').encode('utf-8')
+		description = self.get_argument('artdes').encode('utf-8')
+		ori_text = self.get_argument('ori_text').encode('utf-8')
 		collection_id = self.get_argument('cid')
 		insert_time = date.today()
 
@@ -110,9 +140,8 @@ class ArticleCreateHandler(RequestHandler):
 		order = test_database.fetch_one(ins)['count(*)'] + 1
 
 		test_database = data.DatabaseHandler("test")
-		ins = "insert into article_6(title, description, content, collect_id, order_id, insert_time) value(%s, %s, %s, %s, %s, %s)"
-		para = (title, description, maintext, collection_id, order, insert_time)
-		print para
+		ins = "insert into article_6(title, description, content, ori_text, collect_id, order_id, insert_time) value(%s, %s, %s, %s, %s, %s, %s)"
+		para = (title, description, maintext, ori_text, collection_id, order, insert_time)
 		result = test_database.exe_ins(ins, para)
 		# print result
 
@@ -121,7 +150,7 @@ class BookCreateHandler(RequestHandler):
 		self.create()
 
 	def create(self):
-		title = self.get_argument('title')
+		title = self.get_argument('title').encode('utf-8')
 		test_database = data.DatabaseHandler("test")
 		ins = "select count(*) from book"
 		order = test_database.fetch_one(ins)['count(*)'] + 1
@@ -141,7 +170,7 @@ class CollectionCreateHandler(RequestHandler):
 		self.create()
 
 	def create(self):
-		title = self.get_argument('title')
+		title = self.get_argument('title').encode('utf-8')
 		book_id = self.get_argument('book_id')
 		test_database = data.DatabaseHandler("test")
 		ins = "select count(*) from collect where book_id = %s" %book_id
@@ -166,6 +195,8 @@ if __name__ == "__main__":
 			(r'/article/create', ArticleCreateHandler),
 			(r'/', BrowseHandler),
 			(r'/article/(\w+)', ArticleHandler),
+			(r'/edit/article/(\w+)', ArticleTobeModifyHandler),
+			(r'/modify/article/(\w+)', ArticleModifyHandler),
 			(r"/edit/collection/(\w+)", EditHandler),
 			(r'/book/add', BookCreateHandler),
 			(r'/collection/add', CollectionCreateHandler),],

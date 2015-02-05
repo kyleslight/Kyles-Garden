@@ -34,7 +34,9 @@ class DatabaseHandler():
 				user = "lk",
 				passwd = "lk",
 				db = db,
-				cursorclass=MySQLdb.cursors.DictCursor
+				cursorclass=MySQLdb.cursors.DictCursor,
+				use_unicode=True,
+                charset="utf8",
 			)
 
 	def insert(self, table, para, value):
@@ -51,6 +53,10 @@ class DatabaseHandler():
 
 	def exe_ins(self, ins, para):
 		cur = self.db.cursor()
+		cur.execute('SET NAMES utf8;')
+		cur.execute('SET CHARACTER SET utf8;')
+		cur.execute('SET character_set_connection=utf8;')
+		cur.execute("ALTER DATABASE test CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci'")
 		cur.execute(ins, para)
 		self.db.commit()
 		cur.close()

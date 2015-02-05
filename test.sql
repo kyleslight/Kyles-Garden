@@ -1,3 +1,4 @@
+-- create database test CHARACTER SET utf8;
 use test;
 
 -- CREATE TABLE book(
@@ -15,15 +16,16 @@ use test;
 
 TRUNCATE TABLE book;
 TRUNCATE TABLE collect;
+TRUNCATE TABLE article_6;
 
 
-CREATE TABLE article_6 (
-id INT(11) AUTO_INCREMENT PRIMARY KEY,
-title VARCHAR(255),
-description longtext,
-content longtext,
-ori_text longtext,
-collect_id INT(11),
-order_id INT(11),
-insert_time DATE
-);
+-- CREATE TABLE article_6 (
+-- id INT(11) AUTO_INCREMENT PRIMARY KEY,
+-- title VARCHAR(255),
+-- description longtext,
+-- content longtext,
+-- ori_text longtext,
+-- collect_id INT(11),
+-- order_id INT(11),
+-- insert_time DATE
+-- );
