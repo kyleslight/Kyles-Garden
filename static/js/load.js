@@ -90,7 +90,7 @@ var Preview = {
           text = this.buffer.innerHTML;
       // replace occurrences of &gt; at the beginning of a new line
       // with > again, so Markdown blockquotes are handled correctly
-          text = text.replace(/^&gt;/mg, '>');
+          text = text.replace(/^&gt;/mg, '>').replace(/&#39;/g, "'");
           this.buffer.innerHTML = marked (text);
           if (location.pathname.slice(0, 5) == '/edit') {
             this.SwapBuffers();
@@ -99,11 +99,11 @@ var Preview = {
 
   		Escape: function (html, encode) {
     		return html
-      		.replace(!encode ? /&(?!#?\w+;)/g : /&/g, '&amp;')
+      		// .replace(!encode ? /&(?!#?\w+;)/g : /&/g, '&amp;')
       		// .replace(/</g, '&lt;')
       		// .replace(/>/g, '&gt;')
-      		.replace(/"/g, '&quot;')
-     		.replace(/'/g, '&#39;');
+      	// 	.replace(/"/g, '&quot;')
+     		// .replace(/'/g, '&#39;');
   		}
 	};
 

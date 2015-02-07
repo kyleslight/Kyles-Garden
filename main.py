@@ -30,12 +30,16 @@ class BrowseHandler(RequestHandler):
 				collection_id = article['collect_id']
 				ins = "select title from collect where id = %s" %collection_id
 
-				article['collection_title'] = test_database.fetch_one(ins)['title']
+				article_collection = test_database.fetch_one(ins)
+				if article_collection:
+					article['collection_title'] = test_database.fetch_one(ins)['title']
+				else:
+					article['collection_title'] = ''
 
 				ins_2 = "select id from article_6 where collect_id = %s" %collection_id
 				article['collection_first_article'] = test_database.fetch_one(ins_2)['id']
 
-		para_2 = "select * from book"
+		para_2 = "select * from book order by id desc"
 		books = test_database.fetch_all(para_2)
 
 		if books:
@@ -61,7 +65,7 @@ class ArticleHandler(RequestHandler):
 	def get(self, aid):
 
 		test_database = data.DatabaseHandler("test")
-		ins = "select content from article_6 where(id = %s)" %aid
+		ins = "select content from article_6 where id = %s" %aid
 		maintext = test_database.fetch_one(ins)['content']
 
 		ins_2 = "select collect_id, insert_time from article_6 where id = %s" %aid
@@ -115,14 +119,53 @@ class ArticleModifyHandler(RequestHandler):
 		para = (title, description, maintext, ori_text, aid)
 		result = test_database.exe_ins(ins, para)
 
+class BookModifyHandler(RequestHandler):
+	def get(self):
+		self.modify()
+
+	def modify(self):
+		test_database = data.DatabaseHandler('test')
+		title = self.get_argument('title').encode('utf-8')
+		bid = self.get_argument('id')
+
+		ins = "update book set title = %s where id = %s"
+		para = (title, bid)
+		result = test_database.exe_ins(ins, para)
+
+		ins_2 = "select title from book where id = %s" %bid
+		updated_title = test_database.fetch_one(ins_2)['title']
+
+		book_info = {'id' : bid, 'title' : updated_title}
+		self.write(json_encode(book_info))
+
+class CollectionModifyHandler(RequestHandler):
+	def get(self):
+		self.modify()
+
+	def modify(self):
+		test_database = data.DatabaseHandler('test')
+		title = self.get_argument('title').encode('utf-8')
+		cid = self.get_argument('id')
+
+		ins = "update collect set title = %s where id = %s"
+		para = (title, cid)
+		result = test_database.exe_ins(ins, para)
+
+		ins_2 = "select title from collect where id = %s" %cid
+		updated_title = test_database.fetch_one(ins_2)['title']
+
+		collection_info = {'id' : cid, 'title' : updated_title}
+		self.write(json_encode(collection_info))
+
+
 
 class ArticleCreateHandler(RequestHandler):
 	def post(self):
 		self.create()
 
 		test_database = data.DatabaseHandler("test")
-		ins = "select count(*) from article_6"
-		article_id = test_database.fetch_one(ins)['count(*)']
+		ins = "select id from article_6 order by id desc"
+		article_id = test_database.fetch_one(ins)['id']
 		url = "/article/%s" %article_id
 		self.redirect(url)
 
@@ -150,8 +193,8 @@ class BookCreateHandler(RequestHandler):
 		self.create()
 
 	def create(self):
-		title = self.get_argument('title').encode('utf-8')
 		test_database = data.DatabaseHandler("test")
+		title = self.get_argument('title').encode('utf-8')
 		ins = "select count(*) from book"
 		order = test_database.fetch_one(ins)['count(*)'] + 1
 		print order
@@ -159,11 +202,61 @@ class BookCreateHandler(RequestHandler):
 		para = (title, order)
 		result = test_database.exe_ins(ins_2, para)
 
-		ins_3 = "select count(*) from book"
-		book_id = test_database.fetch_one(ins_3)['count(*)']
+		ins_3 = "select id from book order by id desc"
+		book_id = test_database.fetch_one(ins_3)['id']
 
 		book_info = {'id' : book_id, 'title' : title}
 		self.write(json_encode(book_info))
+
+class BookDeleteHandler(RequestHandler):
+	def get(self, bid):
+		
+		test_database = data.DatabaseHandler("test")
+		ins = "select id from collect where book_id = %s" %bid
+		collection_ids = test_database.fetch_all(ins)
+
+		for collection_id in collection_ids:
+			cid = collection_id['id']
+			ins_2 = "delete from article_6 where collect_id = %s" %cid
+			para_2 = ()
+			result_1 = test_database.exe_ins(ins_2, para_2)
+
+			ins_3 = "delete from collect where id = %s" %cid
+			para_3 = ()
+			result_2 = test_database.exe_ins(ins_3, para_3)
+
+		ins_4 = "delete from book where id = %s" %bid
+		para_4 = ()
+		result = test_database.exe_ins(ins_4, para_4)
+
+		self.redirect('/')
+
+class ArticleDeleteHandler(RequestHandler):
+	def get(self, aid):
+		
+		test_database = data.DatabaseHandler('test')
+		ins = "delete from article_6 where id = %s" %aid
+		para = ()
+
+		result = test_database.exe_ins(ins, para)
+
+		self.redirect('/')
+
+
+class CollectionDeleteHandler(RequestHandler):
+	def get(self, cid):
+		
+		test_database = data.DatabaseHandler("test")
+		ins = "delete from article_6 where collect_id = %s" %cid
+		para = ()
+		result = test_database.exe_ins(ins, para)
+
+		ins_2 = "delete from collect where id = %s" %cid
+		para_2 = ()
+		result_2 = test_database.exe_ins(ins_2, para_2)
+
+		self.redirect('/')
+
 
 class CollectionCreateHandler(RequestHandler):
 	def get(self):
@@ -179,8 +272,8 @@ class CollectionCreateHandler(RequestHandler):
 		para = (title, book_id, order)
 		result = test_database.exe_ins(ins_2, para)
 
-		ins_3 = "select count(*) from collect"
-		collection_id = test_database.fetch_one(ins_3)['count(*)']
+		ins_3 = "select id from collect order by id desc"
+		collection_id = test_database.fetch_one(ins_3)['id']
 
 		collection_info = {'id' : collection_id, 'title' : title, 'book_id' : book_id}
  		self.write(json_encode(collection_info))
@@ -197,7 +290,12 @@ if __name__ == "__main__":
 			(r'/article/(\w+)', ArticleHandler),
 			(r'/edit/article/(\w+)', ArticleTobeModifyHandler),
 			(r'/modify/article/(\w+)', ArticleModifyHandler),
+			(r'/modify/book/', BookModifyHandler),
+			(r'/modify/collection/', CollectionModifyHandler),
 			(r"/edit/collection/(\w+)", EditHandler),
+			(r'/delete/book/(\w+)', BookDeleteHandler),
+			(r'/delete/collection/(\w+)', CollectionDeleteHandler),
+			(r'/delete/article/(\w+)', ArticleDeleteHandler),
 			(r'/book/add', BookCreateHandler),
 			(r'/collection/add', CollectionCreateHandler),],
 		debug = True,

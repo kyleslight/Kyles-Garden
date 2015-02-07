@@ -61,12 +61,13 @@ hr{
 }
 
 .home{
-	color: rgba(146, 194, 3, 1);
+	color: rgba(255,255,255,0.8);
+	/*color: rgba(146, 194, 3, 1);*/
 	font-weight: bold;
 }
 
 .home:hover{
-	color: rgba(255,255,255,0.9);
+	color: rgba(255,255,255,1);
 	/*text-shadow: 0px 1px 1px #FFFFFF;*/
 
 }
@@ -94,14 +95,13 @@ hr{
 }
 
 .header{
-	padding-left: 20px;
-	float: left;
-	width: 100%;
+	width: 1200px;
+	margin: 0 auto;
 }
 
 .logo{
 	font-size: 30px;
-	padding-left: 90px;
+	padding-left: 20px;
 	padding-top: 13px;
 }
 

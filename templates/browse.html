@@ -22,18 +22,25 @@
 		<div class="booklist">
 			{% for book in books %}
 			<div class="book">
-				<div class="booktitle spefont">{{ book['title'] }}
+				<div class="booktitle spefont"><span class="booktitletext" id="booktitletext_{{ book['id'] }}">{{ book['title'] }}</span><a href="#" class="modifybook">Modify</a>
+					<div class="modifybookbox none" id="modifybookbox_{{ book['id'] }}">
+						<input type="text" class="modifybooktitle" id="modifybooktitle_{{ book['id'] }}">
+						<a href="#" class="submitmodifiedtitle" value="{{ book['id'] }}">Submit</a>
+					</div>
+
+
 					<div class="book_operation">
 						<a href="#" class="expandaddcollect">Add a Collection</a>
+						<a href="/delete/book/{{ book['id'] }}" class="deletethisbook">Delete this Book</a>
 					</div>
 				</div>
 
-				<div class="addcollectbox none">
-					<input type="text" class="addcollecttitle">
+				<div class="addcollectbox none" id="addcollectbox_{{ book['id'] }}">
+					<input type="text" class="addcollecttitle" id="addcollecttitle_{{ book['id'] }}">
 					<a href="#" class="submitcollect">Add</a>
 					<input type="text" class="book_index none" value="{{ book['id'] }}">
 				</div>
-				<div class="bookcollect">
+				<div class="bookcollect" id="bookcollect_{{ book['id'] }}">
 					{% for bookcollection in book['bookcollections'] %}
 						{% if bookcollection['is_empty'] %}
 							<a href="/edit/collection/{{ bookcollection['id'] }}" class="collect">{{ bookcollection['title'] }}</a>
@@ -66,7 +73,7 @@
 				</div>
 				<div class="artmain">
 					<h1 class="arttitle"><a href="/article/{{ article['id'] }}" class="spefont">{{ article['title'] }}</a></h1>
-					<div class="artfrom">来自  <a href="/article/{{ article['collection_first_article'] }}" class="artcollection">{{ article['collection_title'] }}</a> 中的文章</div>
+					<div class="artfrom spefont">来自  <a href="/article/{{ article['collection_first_article'] }}" class="artcollection">{{ article['collection_title'] }}</a> 中的文章</div>
 					<div class="artdes">{% raw article['description'] %}</div>
 				</div>
 			</div>

@@ -28,8 +28,29 @@ $(document).ready(function () {
 			'book_id' : book_id
 		},function(data){
 			var collection_block = '<a href="/edit/collection/'+ data.id +'" class="collect">'+ data.title +'</a>';
-			$(".bookcollect").eq(data.book_id - 1).append(collection_block);
+			$("#bookcollect_" + data.book_id).append(collection_block);
+
+			$("#addcollectbox_" + data.book_id).fadeToggle();
+			$("#addcollecttitle_" + data.book_id).val('');
 		});
+
+		return false;
+	});
+
+	$(".modifybook").click(function(){
+		$(this).next().fadeToggle();
+	});
+
+	$(".submitmodifiedtitle").click(function(){
+		var bid = parseInt($(this).attr('value'));
+		var url = '/modify/book/';
+		$.getJSON(url, {'id' : bid, 'title' : $("#modifybooktitle_" + bid).val()}, function(data){
+			$("#booktitletext_" + data.id).text(data.title);
+		});
+
+		$("#modifybooktitle_" + bid).val('');
+
+		$("#modifybookbox_" + bid).fadeToggle();
 
 		return false;
 	});

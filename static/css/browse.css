@@ -1,5 +1,5 @@
 .browsewrap{
-	width: 1260px;
+	width: 1200px;
 	margin: 0 auto;
 }
 
@@ -26,12 +26,66 @@
 	font-weight: bold;
 	padding: 10px;
 	padding-left: 20px;
+	padding-bottom: 0;
+	border-bottom: 1px solid rgba(102,136,0,0.5);
+}
 
-	/*background: rgba(102,136,0,0.5);*/
+a.modifybook{
+	font-size: 0.5em;
+	color: #CCC;
+}
 
-	/*color: white;*/
-	margin-bottom: 10px;
-	border-bottom: 1px dashed #CCC;
+a.modifybook:hover{
+	color: black;
+	background: white;
+}
+
+.modifybookbox{
+	margin-left: -10px;
+	margin-top: 10px;
+}
+
+.submitmodifiedtitle, a.submitcollect{
+	background: #680;
+	color: white;
+	padding: 5px 10px;
+	text-align: center;
+	border-radius: 2px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	margin-top: 10px;
+	font-size: 16px;
+	font-family: "Sayo UV Mono DL","Sayo UV Mono BG","Consolas","DejaVu Sans Mono",monospace;
+	margin-left: -5px;
+}
+
+a.submitmodifiedtitle:hover, a.submitcollect:hover{
+	background: rgba(102,136,0,0.9);	
+}
+
+.addcollectbox{
+	padding: 10px;
+}
+
+.booktitletext{
+	margin-right: 10px;
+}
+
+input.modifybooktitle, input.addcollecttitle{
+	padding: 5px;
+	padding-bottom: 6px;
+	margin-left: 10px;
+	margin-right: 0;
+	border-radius: 2px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	outline: none;
+	border: 1px solid #680;
+	width: 152px;
+}
+
+input.modifybooktitle{
+	width: 124px;
 }
 
 .bookcollect{
@@ -41,19 +95,13 @@
 	border-bottom: 1px solid #CCC;
 }
 
-.addcollectbox{
-	padding: 10px;
-}
-
-a.submitcollect{
-	background: #680;
-	width: 30px;
-	color: white;
-	padding: 5px 10px;
-	text-align: center;
-	border-radius: 4px;
+div.book_operation{
+	background: rgba(102,136,0,0.5);
+	padding-left: 20px;
+	padding-bottom: 5px;
 	margin-top: 10px;
-	margin-left: 10px;
+	margin-left: -20px;
+	margin-right: -10px;
 }
 
 .bookcollect a{
@@ -105,26 +153,25 @@ a.submitcollect{
 	margin-top: 10px;
 }
 
-a.expandaddcollect{
+a.expandaddcollect, a.deletethisbook{
 	padding: 10px 25px;
-	font-size: 0.6em;
+	padding-right: 10px;
+	font-size: 11px;
 	padding-left: 0px;
-	color: #CCC;
+	color: #EEE;
 	display: inline;
 }
 
-a.expandaddcollect:hover{
-	color: black;
+a.expandaddcollect:hover, a.deletethisbook:hover{
+	color: white;
 	background-color: transparent;
 }
 
-.addcollecttitle{
-	padding: 5px;
-}
+
 .articlelist{
 	margin-top: 20px;
 	float: left;
-	width: 959px;
+	width: 929px;
 }
 
 
@@ -134,8 +181,9 @@ a.expandaddcollect:hover{
 	border-radius: 4px;
 	border: 1px solid #CCC;
 	padding: 20px;
+	padding-right: 30px;
 	border-bottom: 2px solid #CCC;
-	margin-bottom: 10px;
+	margin-bottom: 19px;
 	/*box-shadow: 0 0 5px;*/
 }
 
@@ -159,8 +207,8 @@ a.expandaddcollect:hover{
 
 .artmain{
 	float: left;
-	margin-left: 15px;
-	width: 840px;
+	margin-left: 30px;
+	width: 785px;
 }
 
 .arttitle{

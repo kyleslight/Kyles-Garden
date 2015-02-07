@@ -2,6 +2,22 @@ $(document).ready(function(){
 	$("#writing h1").eq(0).after($("#store_author").html());
 
 	get_article_index();
+
+	$("#modifycollection").click(function(){
+		$("#modifycollectionbox").fadeToggle();
+	});
+
+	$("#submitmodifiedtitle").click(function(){
+		cid = parseInt($(this).attr('value'));
+		$.getJSON('/modify/collection/', {'id' : cid, 'title' : $("#modifycollectiontitle").val()}, function(data){
+			$("#collectiontitletext").text(data.title);
+
+			$("#modifycollectiontitle").val('');
+			$("#modifycollectionbox").fadeToggle();
+		});
+
+		return false;
+	});
 });
 
 

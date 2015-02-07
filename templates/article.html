@@ -14,31 +14,45 @@
 {% end %}
 
 {% block custom_js %}
-		<script type="text/javascript" src="{{ static_url("js/article.js") }}"></script>
+	<script type="text/javascript" src="{{ static_url("js/article.js") }}"></script>
+	<script type="text/javascript">
+		Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
+		Preview.callback.autoReset = true;  // make sure it can run more than once
+		Preview.Init();
+		Preview.Update();
+	</script>
 {% end %}
 
 {% block main %}
 	<div class="articlewrap">
 		<div class="articlelist">
-			<div class="collectiontitle spefont">{{ collection['title'] }}</div>
+			<div class="collectiontitle spefont"><span id="collectiontitletext">{{ collection['title'] }}</span> <a href="#" id="modifycollection">Modify</a>
+				<div class="modifycollectionbox none" id="modifycollectionbox">
+					<input type="text" class="modifycollectiontitle" id="modifycollectiontitle">
+					<a href="#" class="submitmodifiedtitle" id="submitmodifiedtitle" value="{{ collection['id'] }}">Submit</a>
+				</div>
+				<div class="collection_operation">
+					<a href="/edit/collection/{{ collection['id'] }}" id="addanarticle">Add an Article</a>
+					<a href="/delete/collection/{{ collection['id'] }}" id="deletethiscollection">Delete this Collection</a>
+				</div>
+			</div>
 			<div class="collectionarticle">
 				{% for collection_article in collection_articles %}
 					{% if str(collection_article['id']) == str(aid) %}
-						<a href="/article/{{ collection_article['id'] }}" class="articlelisttitle spearticlelisttitle">{{ collection_article['title'] }}</a>
+						<span href="/article/{{ collection_article['id'] }}" class="articlelisttitle spearticlelisttitle">{{ collection_article['title'] }}</span>
 					{% else %}
 						<a href="/article/{{ collection_article['id'] }}" class="articlelisttitle">{{ collection_article['title'] }}</a>
 					{% end %}
 				{% end %}
 			</div>
-
-			<a href="/edit/collection/{{ collection['id'] }}" class="addanarticle">Add an Article</a>
 			<a href="/edit/article/{{ aid }}" class="modifyarticle">Modify this Article</a>
+			<a href="/delete/article/{{ aid }}" class="deletearticle">Delete this Article</a>
 		
 		</div>
 		<div class="readareawrap">
 			<div id="store_author" class="none">
 				<div id="store_author_container">
-					<img src="http://pic4.zhimg.com/fdd4b9c61ec8cc237eaa4a14ebb23f85_l.jpg" alt="author_img" id="author_img">
+					<img src="{{ static_url("image/author.jpg") }}" alt="author_img" id="author_img">
 					<span id="article_info_block">
 						<a href="/" id="author_name" class="spefont">Kyles Light</a> · 
 						<span id="article_date" class="spefont">{{ article_date }}</span>

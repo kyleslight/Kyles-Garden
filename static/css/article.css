@@ -1,11 +1,11 @@
 .articlewrap{
-	width: 1260px;
+	width: 1200px;
 	margin: 0 auto;
 }
 
 .readareawrap{
 	background-color: white;
-	width: 937px;
+	width: 877px;
 	padding: 25px;
 	float: left;
 	margin-top: 20px;
@@ -29,7 +29,6 @@
 	padding-top: 20px;
 	border-bottom: 2px solid #CCC;
 	margin-bottom: 10px;
-	padding-bottom: 15px;
 }
 
 .book{
@@ -38,7 +37,45 @@
 
 .collectiontitle{
 	font-size: 1.3em;
-	padding: 10px;
+	padding: 10px 20px;
+}
+
+a#modifycollection{
+	display: inline;
+	font-size: 0.5em;
+	color: #CCC;
+	padding-left: 5px;
+}
+
+a#modifycollection:hover{
+	color: black;
+}
+
+#modifycollectiontitle{
+	padding: 5px;
+	padding-bottom: 6px;
+	margin-right: 0;
+	border-radius: 2px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	outline: none;
+	border: 1px solid #680;
+	width: 124px;
+}
+
+a#submitmodifiedtitle{
+	background: #680;
+	color: white;
+	padding: 5px 10px;
+	text-align: center;
+	border-radius: 2px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	margin-top: 10px;
+	font-size: 16px;
+	font-family: "Sayo UV Mono DL","Sayo UV Mono BG","Consolas","DejaVu Sans Mono",monospace;
+	margin-left: -5px;
+	display: inline;
 }
 
 .collectionarticle{
@@ -52,45 +89,68 @@
 	font-size: 0.9em;
 	display: block;
 	padding: 6px 10px;
-	padding-left: 10px;
-	margin-left: -15px;
+	padding-left: 20px;
 	margin-right: -10px;
 }
 
-a.modifyarticle{
-	padding-left: 25px;
+a#addanarticle, #deletethiscollection{
+	padding: 10px 25px;
+	padding-right: 20px;
+	font-size: 11px;
+	padding-left: 0px;
+	color: #CCC;
+	display: inline;
+}
+
+a.addanarticle{
+	padding-top: 20px;
+}
+
+a#addanarticle:hover, a#deletethiscollection:hover{
+	color: black;
+}
+
+a.modifyarticle, a.deletearticle{
+	padding: 20px 20px;
+	color: #CCC;
+}
+
+a.deletearticle{
+	padding-top: 0;
+}
+
+a.modifyarticle:hover, a.deletearticle:hover{
+	color: black;
 }
 
 a.article_h2{
 	padding-left: 32px;
 	font-size: 0.8em;
+	margin-left: -15px;
 }
 
 a.article_h2:hover{
 	background: rgba(230,230,230,0.9);
 }
 
-a.addanarticle{
-	padding: 10px 25px;
-}
-
 a.articlelisttitle{
 	border-top: 1px dashed #CCC;
-}
-
-a.articlelisttitle:hover{
-	background: rgba(230,230,230,0.9);
 	margin-left: -15px;
 	margin-right: -10px;
 }
 
-a.spearticlelisttitle{
+a.articlelisttitle:hover{
+	background: rgba(230,230,230,0.9);
+}
+
+span.spearticlelisttitle{
 	background: rgba(102,136,0,0.5);
 	font-size: 1.1em;
 	color: white;
 	padding: 10px 20px;
 	margin-left: -15px;
 	margin-right: -10px;
+	display: block;
 }
 
 #writing{
