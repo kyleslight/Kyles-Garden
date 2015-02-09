@@ -100,8 +100,9 @@ class ArticleHandler(BaseHandler):
 		SU = self.get_secure_cookie("SU")
 
 		test_database = data.DatabaseHandler("test")
-		ins = "select content from article_6 where id = %s" %aid
+		ins = "select title, content from article_6 where id = %s" %aid
 		maintext = test_database.fetch_one(ins)['content']
+		article_title = test_database.fetch_one(ins)['title']
 
 		ins_2 = "select collect_id, insert_time from article_6 where id = %s" %aid
 		collection_id = test_database.fetch_one(ins_2)['collect_id']
@@ -113,7 +114,7 @@ class ArticleHandler(BaseHandler):
 		ins_4 = "select title, id from article_6 where collect_id = %s" %collection_id
 		collection_articles = test_database.fetch_all(ins_4)
 
-		self.render('article.html', maintext = maintext, article_date = article_date, collection = collection, collection_articles = collection_articles, aid = aid, SU = SU)
+		self.render('article.html', maintext = maintext, article_title = article_title, article_date = article_date, collection = collection, collection_articles = collection_articles, aid = aid, SU = SU)
 
 
 class BookCreateHandler(BaseHandler):

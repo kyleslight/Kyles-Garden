@@ -11,7 +11,6 @@
 	background: white;
 	border-radius: 4px;
 	border: 1px solid #CCC;
-	padding-top: 20px;
 	border-bottom: 2px solid #CCC;
 	margin-bottom: 10px;
 	/*padding-bottom: 20px;*/
@@ -185,6 +184,7 @@ a.expandaddcollect:hover, a.deletethisbook:hover{
 	border-radius: 4px;
 	border: 1px solid #CCC;
 	padding: 20px;
+	padding-top: 0px;
 	padding-right: 30px;
 	border-bottom: 2px solid #CCC;
 	margin-bottom: 19px;
