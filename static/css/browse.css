@@ -188,7 +188,15 @@ a.expandaddcollect:hover, a.deletethisbook:hover{
 	padding-right: 30px;
 	border-bottom: 2px solid #CCC;
 	margin-bottom: 19px;
-	/*box-shadow: 0 0 5px;*/
+	transition: 1s;
+	-moz-transition:1s;
+	-webkit-transition:1s;
+	-o-transition:1s;
+
+}
+
+.article:hover{
+	box-shadow: 0 1px 10px 1px black;
 }
 
 .timecontainer{
