@@ -122,7 +122,7 @@ p code,{
 }
 
 .headerwrap{
-	width: 100%;
+	width: 1440px;
 	height: 50px; 
 	color: white;
 	padding-bottom: 10px;
@@ -174,7 +174,7 @@ p code,{
 	float: left;
 	/*color: white;*/
 	padding: 10px 0;
-	width: 100%;
+	width: 1440px;
 	text-align: center;
 	/*background: rgba(0,0,0,0.9);*/
 }
