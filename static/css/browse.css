@@ -196,7 +196,7 @@ a.expandaddcollect:hover, a.deletethisbook:hover{
 }
 
 .article:hover{
-	box-shadow: 0 1px 10px 1px black;
+	box-shadow: 0 1px 20px 1px #999;
 }
 
 .timecontainer{
