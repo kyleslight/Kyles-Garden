@@ -83,7 +83,7 @@ p code,{
 }
 
 .wrap{
-	width: 1440px;
+	width: 100%;
 	background: rgba(0,0,0,0.7);
 }
 
@@ -123,11 +123,12 @@ p code,{
 }
 
 .headerwrap{
-	width: 1440px;
+	width: 1200px;
 	height: 50px; 
 	color: white;
 	padding-bottom: 10px;
-	background-color: rgba(0, 0, 0, 0.7);
+	/*background-color: rgba(0, 0, 0, 0.7);*/
+	margin: 0 auto;
 	/*background: white;*/
 	border-bottom: 1px dashed rgba(0,0,0,0.2);
 	/*box-shadow: 0 0 10px rgba(0,0,0,0.5);*/
@@ -175,7 +176,7 @@ p code,{
 	float: left;
 	/*color: white;*/
 	padding: 10px 0;
-	width: 1440px;
+	width: 100%;
 	text-align: center;
 	/*background: rgba(0,0,0,0.9);*/
 }
