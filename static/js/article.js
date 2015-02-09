@@ -4,12 +4,13 @@ $(document).ready(function(){
 	get_article_index();
 
 	$("#modifycollection").click(function(){
+		$("#modifycollectiontitle").val($("#collectiontitletext").text());
 		$("#modifycollectionbox").fadeToggle();
 	});
 
 	$("#submitmodifiedtitle").click(function(){
 		cid = parseInt($(this).attr('value'));
-		$.getJSON('/modify/collection/', {'id' : cid, 'title' : $("#modifycollectiontitle").val()}, function(data){
+		$.postJSON('/modify/collection/', {'id' : cid, 'title' : $("#modifycollectiontitle").val()}, function(data){
 			$("#collectiontitletext").text(data.title);
 
 			$("#modifycollectiontitle").val('');

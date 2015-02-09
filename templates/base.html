@@ -15,6 +15,7 @@
 	<script type="text/javascript" src="{{ static_url("js/marked.js") }}"></script>
 	<script type="text/javascript" src="{{ static_url("js/base.js") }}"></script>
 	<script type="text/javascript" src="{{ static_url("js/load.js") }}"></script>
+	<script type="text/javascript" src="{{ static_url("js/md5.js") }}"></script>
 	<link rel="stylesheet" href="{{ static_url("css/github.css") }}" >
 	<script src="{{ static_url("js/highlight.js") }}"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
@@ -44,8 +45,24 @@
 			</div>
 		</div>
 
+
 		<!-- main -->
 		<div class="mainwrap">
+			<!-- login box -->
+			{% if SU %}
+			<form action="/logout" method="post" class="logoutbox logbox">
+				{% raw xsrf_form_html() %}
+				<a href="/logout" id="logoutsubmit">Sign out</a>
+			</form>
+			{% else %}
+			<form action="/login" method="post" class="loginbox logbox">
+				{% raw xsrf_form_html() %}
+           		Name: <input type="text" name="name" id="UsernameContent">
+           		Password: <input type="password" name="password" id="PasswordContent">
+           		<a href="#" id="loginsubmit">Sign in</a>
+
+           	</form>
+            {% end %}
 			{% block main %}
 			{% end %}
 		</div>

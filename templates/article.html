@@ -26,7 +26,9 @@
 {% block main %}
 	<div class="articlewrap">
 		<div class="articlelist">
-			<div class="collectiontitle spefont"><span id="collectiontitletext">{{ collection['title'] }}</span> <a href="#" id="modifycollection">Modify</a>
+			<div class="collectiontitle spefont"><span id="collectiontitletext">{{ collection['title'] }}</span>
+				{% if SU %}
+				<a href="#" id="modifycollection">Modify</a>
 				<div class="modifycollectionbox none" id="modifycollectionbox">
 					<input type="text" class="modifycollectiontitle" id="modifycollectiontitle">
 					<a href="#" class="submitmodifiedtitle" id="submitmodifiedtitle" value="{{ collection['id'] }}">Submit</a>
@@ -35,6 +37,7 @@
 					<a href="/edit/collection/{{ collection['id'] }}" id="addanarticle">Add an Article</a>
 					<a href="/delete/collection/{{ collection['id'] }}" id="deletethiscollection">Delete this Collection</a>
 				</div>
+				{% end %}
 			</div>
 			<div class="collectionarticle">
 				{% for collection_article in collection_articles %}
@@ -45,8 +48,11 @@
 					{% end %}
 				{% end %}
 			</div>
+
+			{% if SU %}
 			<a href="/edit/article/{{ aid }}" class="modifyarticle">Modify this Article</a>
 			<a href="/delete/article/{{ aid }}" class="deletearticle">Delete this Article</a>
+			{% end %}
 		
 		</div>
 		<div class="readareawrap">

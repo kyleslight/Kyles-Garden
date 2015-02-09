@@ -37,6 +37,7 @@
 			</div>
 		</div>
 		<form id="editdata" name="editdata" action="/article/create" method="post">
+			{% raw xsrf_form_html() %}
 			<input type="text" class="arttitle none" name='arttitle' id="arttitle">
 			<input type="text" class="artdes none" name='artdes' id="artdes">
 			<input type="text" class="cid none" name='cid' id='cid' value="{{ cid }}">

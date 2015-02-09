@@ -14,20 +14,21 @@
 	padding-top: 20px;
 	border-bottom: 2px solid #CCC;
 	margin-bottom: 10px;
-	padding-bottom: 20px;
+	/*padding-bottom: 20px;*/
 }
 
 .book{
-	padding-bottom: 20px;
+	/*padding-bottom: 20px;*/
 }
 
 .booktitle{
 	font-size: 1.3em;
 	font-weight: bold;
 	padding: 10px;
+	padding-top: 25px;
 	padding-left: 20px;
 	padding-bottom: 0;
-	border-bottom: 1px solid rgba(102,136,0,0.5);
+	/*border-bottom: 1px solid rgba(102,136,0,0.5);*/
 }
 
 a.modifybook{
@@ -122,9 +123,12 @@ div.book_operation{
 }
 
 #expandaddbook{
+	margin: 20px;
+	margin-left: 0;
 	padding-left: 20px;
 	font-size: 0.9em;
 	color: #CCC;
+	display: block;
 }
 
 #expandaddbook:hover{

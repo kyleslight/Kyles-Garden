@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	$("#submitbook").click(function(){
-		$.getJSON('/book/add', {'title' : $("#addbooktitle").val()}, function(data){
+		$.postJSON('/book/add', {'title' : $("#addbooktitle").val()}, function(data){
 			var book_block = '<div class="book">'
 				+	'<div class="booktitle">'+ data.title +'</div>'
 				+	'<div class="bookcollect">'
@@ -23,7 +23,7 @@ $(document).ready(function () {
 		var title = $(this).prev().val();
 		var book_id = parseInt($(this).next().val());
 
-		$.getJSON('/collection/add', {
+		$.postJSON('/collection/add', {
 			'title' : title,
 			'book_id' : book_id
 		},function(data){
@@ -38,13 +38,17 @@ $(document).ready(function () {
 	});
 
 	$(".modifybook").click(function(){
+		var book_id = $(this).attr('value');
+		$("#modifybooktitle_" + book_id).val($("#booktitletext_" + book_id).text());
 		$(this).next().fadeToggle();
+
+		return false;
 	});
 
 	$(".submitmodifiedtitle").click(function(){
 		var bid = parseInt($(this).attr('value'));
 		var url = '/modify/book/';
-		$.getJSON(url, {'id' : bid, 'title' : $("#modifybooktitle_" + bid).val()}, function(data){
+		$.postJSON(url, {'id' : bid, 'title' : $("#modifybooktitle_" + bid).val()}, function(data){
 			$("#booktitletext_" + data.id).text(data.title);
 		});
 
@@ -67,3 +71,17 @@ $(document).ready(function () {
 		return false;
 	});
 })
+
+function getCookie(name){
+	var c = document.cookie.match("\\b" + name + "=([^;]*)\\b"); return c ? c[1] : undefined;
+}
+
+$.postJSON = function(url, data, callback) { 
+	data._xsrf = getCookie("_xsrf"); 
+	jQuery.ajax({
+		url: url,
+		data: jQuery.param(data), dataType: "json",
+		type: "POST",
+		success: callback
+	}); 
+}

@@ -39,6 +39,7 @@ code.hljs{
 
 p code.hljs{
 	background: transparent;
+	padding: 0.2em;
 }
 
 pre{
@@ -48,8 +49,45 @@ pre{
 	white-space: pre-wrap;
 }
 
+blockquote{
+	border-left: 10px solid lightblue;
+	padding: 10px;
+	padding-left: 20px;
+	margin-left: 0;
+	background: #f8f8f8;
+}
+
 hr{
 	border-style: ridge;
+}
+
+p code,{
+	display: inline-block;
+	white-space: no-wrap;
+	background: #fff;
+	font-size: .8em;
+	line-height: 1.5em;
+	color: #555;
+	border: 1px solid #ddd;
+	-webkit-border-radius: 0.2em;
+	-moz-border-radius: 0.2em;
+	-ms-border-radius: 0.2em;
+	-o-border-radius: 0.2em;
+	border-radius: 0.2em;
+	padding: 0 .3em;
+	margin: -1px 0;
+}
+
+.artdes code{
+	background: white;
+}
+
+.wrap{
+	background: rgba(0,0,0,0.7);
+}
+
+.MathJax_Display{
+	font-family:  "Math-Symbol","Math-Text","Tinos","Linux Libertine","Times New Roman",serif;
 }
 
 .none{
@@ -152,6 +190,11 @@ hr{
 	font-size: 0.9em;
 }
 
+.readareawrap{
+	line-height: 1.7em;
+	font-size: 19px;
+}
+
 .readareawrap p{
 	line-height: 1.5em;
 }
@@ -166,3 +209,6 @@ hr{
 	margin-left: -25px;
 }
 
+.logbox{
+	display: none;
+}
