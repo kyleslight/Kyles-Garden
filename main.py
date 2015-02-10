@@ -321,28 +321,15 @@ class ArticleDeleteHandler(BaseHandler):
 		self.redirect('/')
 
 
-# class LoginHandler(BaseHandler):
-#     def get(self):
-#         self.write('<html><body><form action="/login" method="post">'
-#                    'Name: <input type="text" name="name">'
-#                    '<input type="submit" value="Sign in">'
-#                    '</form></body></html>')
-
-#     def post(self):
-
-# 	    self.set_secure_cookie("user", self.get_argument("name"))
-# 	    self.redirect("/")
-
-# class MainHandler(BaseHandler):
-#     @tornado.web.authenticated
-#     def get(self):
-#         name = tornado.escape.xhtml_escape(self.current_user)
-#         self.write("Hello, " + name)
-
 class LogoutHandler(BaseHandler):
     def get(self):
         self.clear_cookie('SU')
         self.redirect('/')
+
+class TestmathHandler(BaseHandler):
+	def get(self):
+		self.render('testmath.html')
+
 
 settings = dict(
     		cookie_secret = base64.b64encode(uuid.uuid4().bytes + uuid.uuid4().bytes),
@@ -372,7 +359,8 @@ if __name__ == "__main__":
 			(r'/delete/collection/(\w+)', CollectionDeleteHandler),
 			(r'/delete/article/(\w+)', ArticleDeleteHandler),
 			(r'/book/add', BookCreateHandler),
-			(r'/collection/add', CollectionCreateHandler),], **settings
+			(r'/collection/add', CollectionCreateHandler),
+			(r'/testmath', TestmathHandler)], **settings
 		
 		)
 	http_server = httpserver.HTTPServer(app)
