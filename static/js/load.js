@@ -43,6 +43,9 @@ var Preview = {
     		preview.style.display = "";
         highlight_code();
         center_image();
+        $('a[href^="http"]').each(function(){
+        $(this).attr('target', '_blank');
+  });
   		},
 
   //
