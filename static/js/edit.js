@@ -21,7 +21,6 @@ $(document).ready(function(){
 		$('#artdes').val(description);
 		console.log(document.getElementById('arttitle').innerHTML);
 		$('#ori_text').val($('#writing').val());
-		console.log($('#ori_text').val());
 		theform.submit();
 	})
 })

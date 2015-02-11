@@ -87,8 +87,10 @@ class BrowseHandler(BaseHandler):
 
 
 	def post(self):
-		print self.get_argument('password')
-		if self.get_argument("name") == 'kyleslight' and self.get_argument('password') == '3a62d09710ff56a3e4cbd31b43323b41':
+		test_database = data.DatabaseHandler('test')
+		ins = "select password from user where id = 1"
+		password = test_database.fetch_one(ins)['password']
+		if self.get_argument("name") == 'kyleslight' and self.get_argument('password') == password:
 		    self.set_secure_cookie("SU", self.get_argument("name"))
 		    self.write(json_encode({'message' : 'login success'}))
 		else:

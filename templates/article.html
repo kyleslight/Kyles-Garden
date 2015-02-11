@@ -13,8 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ static_url("css/article.css") }}">
 {% end %}
 
-{% block custom_js %}
-	<script type="text/javascript" src="{{ static_url("js/mathjax.js") }}"></script>	
+{% block custom_js %}	
 	<script type="text/javascript" src="{{ static_url("js/article.js") }}"></script>
 	<script type="text/javascript">
 		Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
