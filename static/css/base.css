@@ -40,6 +40,9 @@ code.hljs{
 p code.hljs{
 	background: transparent;
 	padding: 0.2em;
+	color: #900 !important;
+	border-radius: 4px;
+	font-weight: bold;
 }
 
 pre{
@@ -61,21 +64,8 @@ hr{
 	border-style: ridge;
 }
 
-p code,{
-	display: inline-block;
-	white-space: no-wrap;
-	background: #fff;
-	font-size: .8em;
-	line-height: 1.5em;
-	color: #555;
-	border: 1px solid #ddd;
-	-webkit-border-radius: 0.2em;
-	-moz-border-radius: 0.2em;
-	-ms-border-radius: 0.2em;
-	-o-border-radius: 0.2em;
-	border-radius: 0.2em;
-	padding: 0 .3em;
-	margin: -1px 0;
+p code{
+	
 }
 
 .artdes code{
