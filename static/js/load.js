@@ -111,8 +111,8 @@ var Preview = {
 
 // Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
 // Preview.callback.autoReset = true;  // make sure it can run more than once
-Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
-Preview.callback.autoReset = true;  // make sure it can run more than once
+// Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
+// Preview.callback.autoReset = true;  // make sure it can run more than once
 // Preview.Init();
 // Preview.Update();
 

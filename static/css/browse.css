@@ -223,6 +223,10 @@ a.expandaddcollect:hover, a.deletethisbook:hover{
 	width: 785px;
 }
 
+span.MathJax_SVG{
+	display: none !important;
+}
+
 .arttitle{
 	margin-bottom: 0;
 }

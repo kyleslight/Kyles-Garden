@@ -13,17 +13,21 @@
 	<link rel="stylesheet" type="text/css" href="{{ static_url("css/article.css") }}">
 {% end %}
 
-{% block custom_js %}	
+{% block custom_js %}
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 	<script type="text/javascript" src="{{ static_url("js/article.js") }}"></script>
 	<script type="text/javascript">
-		Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
-		Preview.callback.autoReset = true;  // make sure it can run more than once
-		Preview.Init();
-		Preview.Update();
+		// Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
+		// Preview.callback.autoReset = true;  // make sure it can run more than once
+		// Preview.Init();
+		// Preview.Update();
 	</script>
 {% end %}
 
 {% block main %}
+	<div id="null_box" class="none">
+		<span id="null_block">$$$$</span>
+	</div>
 	<div class="articlewrap">
 		<div class="articlelist">
 			<div class="collectiontitle spefont"><span id="collectiontitletext">{{ collection['title'] }}</span>

@@ -116,6 +116,8 @@ class ArticleHandler(BaseHandler):
 		ins_4 = "select title, id from article_6 where collect_id = %s" %collection_id
 		collection_articles = test_database.fetch_all(ins_4)
 
+		print maintext
+
 		self.render('article.html', maintext = maintext, article_title = article_title, article_date = article_date, collection = collection, collection_articles = collection_articles, aid = aid, SU = SU)
 
 

@@ -93,6 +93,25 @@ a#submitmodifiedtitle{
 	margin-right: -10px;
 }
 
+div.MathJax_SVG_Processed{
+	display: block !important;
+}
+
+span.MathJax_SVG_Processed{
+	display: inline-block !important;
+}
+
+.MathJax_SVG>SVG{
+	display: none !important;
+}
+.MathJax_SVG>:first-child{
+	display: inline-block !important;
+}
+
+.MathJax_Preview+.MathJax_SVG_Display{
+	display: none !important;
+}
+
 a#addanarticle, #deletethiscollection{
 	padding: 10px 25px;
 	padding-right: 20px;
