@@ -3,6 +3,7 @@ body{
 	/*background-size: 100% 300%;*/
 	margin: 0;
 	font-family: 'Open Sans','Helvetica Neue',Arial,'Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
+	padding: 0 20px;
 }
 
 a{
