@@ -1,9 +1,8 @@
 body{
 	background: url("/static/image/bg.png");
 	/*background-size: 100% 300%;*/
-	margin: 0;
+	margin: 0 20px;
 	font-family: 'Open Sans','Helvetica Neue',Arial,'Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
-	padding: 0 20px;
 }
 
 a{
