@@ -248,4 +248,5 @@ span.MathJax_SVG{
 	margin-top: 15px;
 	color: #888;
 	font-size: 0.9em;
+	overflow: scroll;
 }

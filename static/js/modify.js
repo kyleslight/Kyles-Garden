@@ -19,9 +19,7 @@ $(document).ready(function(){
 		description = description + '...';
 		
 		$('#artdes').val(description);
-		console.log(document.getElementById('arttitle').innerHTML);
 		$('#ori_text').val($('#writing').val());
-		console.log($('#ori_text').val());
 		theform.submit();
 	})
 })
@@ -72,4 +70,26 @@ function get_preview_content(){
 function get_title(){
 	var title = Preview.preview.getElementsByTagName('h1')[0].innerHTML;
 	return title;
+}
+
+function swap_grap_block(){
+	$(".grap").each(function(){
+		var gra_ori_test = $(this).text();
+
+		try{
+			var result = Viz(gra_ori_test, "svg");
+			var title_label = "";
+			var grap_parent = $(this).parent();
+			var next_para_text = grap_parent.next().text();
+			if (next_para_text.substr(0,5) == "title") {
+				title_label = '<br>' + next_para_text.slice(6);
+				grap_parent.next().remove();
+			};
+			grap_parent.before('<div class="graphvizdisplay">' + result + title_label +'</div>');
+			grap_parent.prev().addClass('center');
+			grap_parent.remove();
+		}catch(e){
+			// console.log(e);
+		}
+	});
 }

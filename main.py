@@ -129,7 +129,6 @@ class BookCreateHandler(BaseHandler):
 		title = self.get_argument('title').encode('utf-8')
 		ins = "select count(*) from book"
 		order = test_database.fetch_one(ins)['count(*)'] + 1
-		print order
 		ins_2 = "insert into book(title, order_id) value(%s, %s)"
 		para = (title, order)
 		result = test_database.exe_ins(ins_2, para)
@@ -245,8 +244,16 @@ class CollectionDeleteHandler(BaseHandler):
 class EditHandler(BaseHandler):
 	@tornado.web.authenticated
 	def get(self, cid):
+		is_grap = False
 		SU = self.get_secure_cookie("SU")
-		self.render('edit.html', cid = cid, SU = SU)	
+		self.render('edit.html', cid = cid, SU = SU, is_grap = is_grap)
+
+class EditGrapHandler(BaseHandler):
+	@tornado.web.authenticated
+	def get(self, cid):
+		is_grap = True
+		SU = self.get_secure_cookie("SU")
+		self.render('edit.html', cid = cid, SU = SU, is_grap = is_grap)
 
 class ArticleCreateHandler(BaseHandler):
 	@tornado.web.authenticated
@@ -282,11 +289,24 @@ class ArticleTobeModifyHandler(BaseHandler):
 	@tornado.web.authenticated
 	def get(self, aid):
 		SU = self.get_secure_cookie("SU")
+		is_grap = False
 
 		test_database = data.DatabaseHandler("test")
 		ins = "select ori_text, collect_id from article_6 where(id = %s)" %aid
 		article_tobe_modify = test_database.fetch_one(ins)
-		self.render('modify.html', aid = aid, article_tobe_modify = article_tobe_modify, SU = SU)
+		self.render('modify.html', aid = aid, article_tobe_modify = article_tobe_modify, SU = SU, is_grap = is_grap)
+
+class ArticleTobeModifyGrapHandler(BaseHandler):
+	@tornado.web.authenticated
+	def get(self, aid):
+		SU = self.get_secure_cookie("SU")
+		is_grap = True
+
+		test_database = data.DatabaseHandler("test")
+		ins = "select ori_text, collect_id from article_6 where(id = %s)" %aid
+		article_tobe_modify = test_database.fetch_one(ins)
+		self.render('modify.html', aid = aid, article_tobe_modify = article_tobe_modify, SU = SU, is_grap = is_grap)
+
 
 class ArticleModifyHandler(BaseHandler):
 	@tornado.web.authenticated
@@ -353,10 +373,12 @@ if __name__ == "__main__":
 			(r'/logout', LogoutHandler),
 			(r'/article/(\w+)', ArticleHandler),
 			(r'/edit/article/(\w+)', ArticleTobeModifyHandler),
+			(r'/edit/article/(\w+)/grap', ArticleTobeModifyGrapHandler),
 			(r'/modify/article/(\w+)', ArticleModifyHandler),
 			(r'/modify/book/', BookModifyHandler),
 			(r'/modify/collection/', CollectionModifyHandler),
 			(r"/edit/collection/(\w+)", EditHandler),
+			(r"/edit/collection/(\w+)/grap", EditGrapHandler),
 			(r'/delete/book/(\w+)', BookDeleteHandler),
 			(r'/delete/collection/(\w+)', CollectionDeleteHandler),
 			(r'/delete/article/(\w+)', ArticleDeleteHandler),

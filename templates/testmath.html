@@ -4,10 +4,42 @@
 <script type="text/x-mathjax-config">
   // MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
-<!-- <script type="text/javascript"src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG"></script> -->
+	<script type="text/javascript" src="{{ static_url("js/jquery.js") }}"></script>
+	<script type="text/javascript" src="{{ static_url("js/viz.js") }}"></script>
+	<script type="text/javascript" src="{{ static_url("js/testmath.js") }}"></script>
 </head>
 <body>
-$$\int$$
-<span class="MathJax_Preview" style="color: inherit;"></span><div class="MathJax_SVG_Display" style="text-align: center;"><span class="MathJax_SVG" id="MathJax-Element-5-Frame" role="math" style="font-size: 120%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.411ex" height="5.323ex" viewBox="0 -1390.7 2753.4 2281.4" style="vertical-align: -2.056ex; margin: 1px 0ex;"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJSZ2-222B" x="0" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMATHI-78" x="1115" y="0"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#MJMAIN-3D" x="1970" y="0"></use></g></svg></span></div><script type="math/tex; mode=display" id="MathJax-Element-5">\int x =</script>
+	<div id="test">
+		digraph G {
+
+	subgraph cluster_0 {
+		style=filled;
+		color=lightgrey;
+		node [style=filled,color=white];
+		a0 -> a1 -> a2 -> a3;
+		label = "process #1";
+	}
+
+	subgraph cluster_1 {
+		node [style=filled];
+		b0 -> b1 -> b2 -> b3;
+		label = "process #2";
+		color=blue
+	}
+	start -> a0;
+	start -> b0;
+	a1 -> b3;
+	b2 -> a3;
+	a3 -> a0;
+	a3 -> end;
+	b3 -> end;
+
+	start [shape=Mdiamond];
+	end [shape=Msquare];
+}
+	</div>
+	<div id="display">
+		
+	</div>
 </body>
 </html>

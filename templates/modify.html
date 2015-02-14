@@ -16,6 +16,9 @@
 	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 	<script type="text/javascript" src="{{ static_url("js/load.js") }}"></script>
 	<script type="text/javascript" src="{{ static_url("js/modify.js") }}"></script>
+	{% if is_grap %}
+		<script type="text/javascript" src="{{ static_url("js/viz.js") }}"></script>
+	{% end %}
 	<script type="text/javascript">
 		Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
 		Preview.callback.autoReset = true;  // make sure it can run more than once
@@ -25,6 +28,13 @@
 {% end %}
 
 {% block main %}
+	<div id="is_grap" class="none">
+		{% if is_grap %}
+			ture
+		{% else %}
+			false
+		{% end %}
+	</div>
 	<div class="editmain">
 		<div class="writingarea">
 			<div class="writingcontainer">

@@ -44,8 +44,11 @@ var Preview = {
         highlight_code();
         center_image();
         $('a[href^="http"]').each(function(){
-        $(this).attr('target', '_blank');
-  });
+          $(this).attr('target', '_blank');
+        });
+        if ($("#is_grap").text().replace(/\n/g,'') == "ture") {
+          swap_grap_block();
+        };
   		},
 
   //
@@ -95,7 +98,6 @@ var Preview = {
       // with > again, so Markdown blockquotes are handled correctly
           text = text.replace(/&gt;/mg, '>').replace(/&lt;/mg, '<').replace(/&#39;/g, "'");
 
-          console.log(text);
           this.buffer.innerHTML = marked (text);
           if (location.pathname.slice(0, 5) == '/edit') {
             this.SwapBuffers();

@@ -190,6 +190,7 @@ p code{
 	margin: 0 auto;
 	color: #888;
 	font-size: 0.9em;
+	overflow: scroll;
 }
 
 .readareawrap{
