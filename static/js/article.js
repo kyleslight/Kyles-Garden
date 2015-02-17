@@ -19,6 +19,8 @@ $(document).ready(function(){
 
 		return false;
 	});
+
+	remove_block();
 });
 
 
@@ -35,4 +37,9 @@ function get_article_index(){
 	article_index_block += '</div>';
 
 	$(".spearticlelisttitle").eq(0).after(article_index_block);
+}
+
+function remove_block(){
+	$("[type='math/tex; mode=display']").prev().remove();
+	console.log("miao");
 }

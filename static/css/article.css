@@ -108,7 +108,7 @@ span.MathJax_SVG_Processed{
 	display: inline-block !important;
 }
 
-.MathJax_Preview+.MathJax_SVG_Display{
+.MathJax_Preview{
 	display: none !important;
 }
 
@@ -120,6 +120,10 @@ a#addanarticle, #deletethiscollection{
 	color: #CCC;
 	display: inline;
 }
+/*
+.MathJax_SVG_Display + script[type="math/tex; mode=display"]{
+	display: none !important;
+}*/
 
 a.addanarticle{
 	padding-top: 20px;
