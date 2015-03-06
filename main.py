@@ -119,6 +119,23 @@ class ArticleHandler(BaseHandler):
 		self.render('article.html', maintext = maintext, article_title = article_title, article_date = article_date, collection = collection, collection_articles = collection_articles, aid = aid, SU = SU)
 
 
+class ShareHandler(BaseHandler):
+    def get(self, share_id):
+    	SU = self.get_secure_cookie("SU")
+
+    	test_database = data.DatabaseHandler("test")
+    	ins = "select title, content from share where share_id = '%s'" %share_id
+
+    	share = test_database.fetch_one(ins)
+    	maintext = test_database.fetch_one(ins)['content']
+    	title = test_database.fetch_one(ins)['title']
+
+    	print share
+
+    	self.render('share.html', maintext = maintext, article_title = title, SU = SU)
+
+
+
 class BookCreateHandler(BaseHandler):
 	@tornado.web.authenticated
 	def post(self):
@@ -342,6 +359,43 @@ class ArticleDeleteHandler(BaseHandler):
 
 		self.redirect('/')
 
+class ShareAddHandler(BaseHandler):
+	@tornado.web.authenticated
+	def post(self):
+		self.create()
+
+		test_database = data.DatabaseHandler("test")
+		ins = "select share_id from share order by id desc"
+		share_id = test_database.fetch_one(ins)['share_id']
+		url = '/share/%s' %share_id
+		self.write(json_encode(share_id))
+
+	def create(self):
+		title = self.get_argument('arttitle').encode('utf-8')
+		maintext = self.get_argument('maintext').encode('utf-8')
+		share_id = self.get_argument('share_id')
+
+		test_database = data.DatabaseHandler("test")
+		ins = "insert into share(title, content, share_id) value(%s, %s, %s)"
+		para = (title, maintext, share_id)
+		result = test_database.exe_ins(ins, para)
+
+class  ShareCollectionHandler(BaseHandler):
+	@tornado.web.authenticated
+	def get(self):
+		
+		test_database = data.DatabaseHandler("test")
+		ins = "select title, share_id from share order by id desc"
+
+		shares = test_database.fetch_all(ins)
+
+		shares_page = ""
+
+		for share in shares:
+			shares_page = shares_page + ' <a href="/share/'+ share['share_id'] +'">'+ share['title'] +'</a> '
+
+		self.write(shares_page)
+
 
 class LogoutHandler(BaseHandler):
     def get(self):
@@ -372,6 +426,9 @@ if __name__ == "__main__":
 			(r'/login', BrowseHandler),
 			(r'/logout', LogoutHandler),
 			(r'/article/(\w+)', ArticleHandler),
+			(r'/share/add/', ShareAddHandler),
+			(r'/sharecollection', ShareCollectionHandler),
+			(r'/share/(\w+)', ShareHandler),
 			(r'/edit/article/(\w+)', ArticleTobeModifyHandler),
 			(r'/edit/article/(\w+)/grap', ArticleTobeModifyGrapHandler),
 			(r'/modify/article/(\w+)', ArticleModifyHandler),

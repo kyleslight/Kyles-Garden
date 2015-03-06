@@ -20,6 +20,18 @@ $(document).ready(function(){
 		return false;
 	});
 
+
+	$(window).scroll(function(){
+		var top = $(window).scrollTop();
+		if (top > 0.2*$(window).height()) {
+			$(".readareawrap").addClass("leftsharereadwrap");
+			$(".articlelist").addClass("fixedarticlelist");
+		}else{
+			$(".readareawrap").removeClass("leftsharereadwrap");
+			$(".articlelist").removeClass("fixedarticlelist");
+		}
+		
+	});
 	remove_block();
 });
 
@@ -41,5 +53,4 @@ function get_article_index(){
 
 function remove_block(){
 	$("[type='math/tex; mode=display']").prev().remove();
-	console.log("miao");
 }

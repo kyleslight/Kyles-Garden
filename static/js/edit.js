@@ -22,6 +22,26 @@ $(document).ready(function(){
 		$('#ori_text').val($('#writing').val());
 		theform.submit();
 	});
+
+	$(".articleshare").click(function(){
+		var theform = document.getElementById("editdata");
+		var previewcon = document.getElementById("previewtextcontainer");
+		var maintext = get_preview_content();
+		var share_id = calcMD5(maintext);
+
+		var post_data = {
+			'arttitle' : $('#arttitle').val(),
+			'maintext' : maintext,
+			'share_id' : share_id
+		};
+		$('#arttitle').val(get_title());
+		console.log(post_data['arttitle']);
+		$.postJSON("/share/add/", post_data, function(data){
+			window.location = "/share/" + share_id;
+		});
+
+		return false;
+	});
 })
 
 function enable_tab(){

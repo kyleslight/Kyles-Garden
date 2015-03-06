@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	<title>{{ article_title }} - Kyles' Garden</title>
+{% end %}
+
+{% block description %}
+	<meta name="Keywords" content="分享 Kyles' garden blog" />
+    <meta name="Description" content="Kyles' garden 的博客私有分享页面" />
+{% end %}
+
+{% block custom_css %}
+	<link rel="stylesheet" type="text/css" href="{{ static_url("css/article.css") }}">
+{% end %}
+
+{% block custom_js %}
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG"></script>
+	<!-- // <script type="text/javascript" src="{{ static_url("js/article.js") }}"></script> -->
+{% end %}
+
+{% block main %}
+	<div class="articlewrap">
+		
+		<div class="readareawrap sharereadwrap">
+			<div id="store_author" class="none">
+				<div id="store_author_container">
+					<img src="{{ static_url("image/author.jpg") }}" alt="author_img" id="author_img">
+					<span id="article_info_block">
+						<a href="/article/2" id="author_name" class="spefont" target="_blank">Kyles Light</a>
+					</span>
+				</div>
+			</div>
+			<div id="writing">
+				{% raw maintext %}
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(".headerwrap").hide();
+		$(".footerwrap").hide();
+		$("[type='math/tex; mode=display']").prev().remove();
+	</script>
+{% end %}
