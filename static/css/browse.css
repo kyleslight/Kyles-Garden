@@ -196,7 +196,7 @@ a.expandaddcollect:hover, a.deletethisbook:hover{
 }
 
 .article:hover{
-	box-shadow: 0 1px 20px 1px #999;
+	box-shadow: 0 1px 10px 1px #999;
 }
 
 .timecontainer{
@@ -242,6 +242,7 @@ span.MathJax_SVG{
 .artfrom{
 	color: #CCC;
 	font-size: 0.8em;
+	margin-top: 5px;
 }
 
 .artdes{
