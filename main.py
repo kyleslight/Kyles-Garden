@@ -392,7 +392,7 @@ class  ShareCollectionHandler(BaseHandler):
 		shares_page = ""
 
 		for share in shares:
-			shares_page = shares_page + ' <a href="/share/'+ share['share_id'] +'">'+ share['title'] +'</a> '
+			shares_page = shares_page + ' <a href="/share/'+ share['share_id'] +'">'+ share['share_id'] +' ( ' +share['title'] + ' ) ' +'</a> '
 
 		self.write(shares_page)
 
