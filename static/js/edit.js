@@ -35,7 +35,6 @@ $(document).ready(function(){
 			'share_id' : share_id
 		};
 		$('#arttitle').val(get_title());
-		console.log(post_data['arttitle']);
 		$.postJSON("/share/add/", post_data, function(data){
 			window.location = "/share/" + share_id;
 		});

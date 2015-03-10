@@ -23,14 +23,34 @@ $(document).ready(function(){
 
 	$(window).scroll(function(){
 		var top = $(window).scrollTop();
-		if (top > 0.2*$(window).height()) {
-			$(".readareawrap").addClass("leftsharereadwrap");
-			$(".articlelist").addClass("fixedarticlelist");
+		if (top > 0.1*$(window).height()) {
+			if (!$(".readareawrap").hasClass("leftsharereadwrap")) {
+				$(".readareawrap").addClass("leftsharereadwrap");
+				$(".articlelist").addClass("fixedarticlelist");
+				$(".articlelist").stop();
+				$(".articlelist").animate({opacity:0.3}, 1000);
+			};
 		}else{
-			$(".readareawrap").removeClass("leftsharereadwrap");
-			$(".articlelist").removeClass("fixedarticlelist");
+			if ($(".readareawrap").hasClass("leftsharereadwrap")) {
+				$(".readareawrap").removeClass("leftsharereadwrap");
+				$(".articlelist").removeClass("fixedarticlelist");
+				$(".articlelist").stop();
+				$(".articlelist").animate({opacity:1}, 1000);
+			}
 		}
 		
+	});
+
+	$(".articlelist").hover(function(){
+		$(".articlelist").stop();
+		$(".articlelist").animate({opacity:1}, 1000);
+	});
+	$(".articlelist").mouseleave(function(){
+		$(".articlelist").stop();
+		var top = $(window).scrollTop();
+		if (top > 0.1*$(window).height()) {
+			$(".articlelist").animate({opacity:0.3}, 1000);
+		}
 	});
 	remove_block();
 });

@@ -50,18 +50,14 @@ div.sharereadwrap{
 	max-height: 80%;
 	overflow-y:scroll; 
 	overflow-x:hidden;
-	opacity: 0.3;
-	transition: 1s;
-	-moz-transition:1s;
-	-webkit-transition:1s;
-	-o-transition:1s;
+	/*opacity: 0.3;*/
 }
 .fixedarticlelist:hover{
-	opacity:1;
+	/*opacity:1;*/
 }
 
 .leftsharereadwrap{
-	margin-left: 272px;
+	margin-left: 271px;
 }
 
 .book{
@@ -199,7 +195,7 @@ a.articlelisttitle:hover{
 	background: rgba(230,230,230,0.9);
 }
 
-span.spearticlelisttitle{
+a.spearticlelisttitle{
 	background: rgba(102,136,0,0.5);
 	font-size: 1.1em;
 	color: white;
@@ -207,6 +203,10 @@ span.spearticlelisttitle{
 	margin-left: -15px;
 	margin-right: -10px;
 	display: block;
+}
+
+a.spearticlelisttitle:hover{
+	background: rgba(102,136,0,1);
 }
 
 #writing{

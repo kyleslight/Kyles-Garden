@@ -43,7 +43,7 @@
 			<div class="collectionarticle">
 				{% for collection_article in collection_articles %}
 					{% if str(collection_article['id']) == str(aid) %}
-						<span href="/article/{{ collection_article['id'] }}" class="articlelisttitle spearticlelisttitle">{{ collection_article['title'] }}</span>
+						<a href="#" class="articlelisttitle spearticlelisttitle">{{ collection_article['title'] }}</a>
 					{% else %}
 						<a href="/article/{{ collection_article['id'] }}" class="articlelisttitle">{{ collection_article['title'] }}</a>
 					{% end %}
