@@ -36,7 +36,7 @@ code.hljs{
 	line-height: 1.3em;
 }
 
-p code.hljs{
+p code.hljs, li code.hljs{
 	background: transparent;
 	padding: 0.2em;
 	color: #900 !important;
@@ -203,7 +203,6 @@ p code{
 	margin: 0 auto;
 	color: #888;
 	font-size: 0.9em;
-	overflow: scroll;
 }
 
 .readareawrap{
