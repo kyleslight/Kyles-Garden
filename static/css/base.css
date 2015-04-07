@@ -1,6 +1,5 @@
 body{
 	background: url("/static/image/bg.png");
-	/*background-size: 100% 300%;*/
 	margin: 0;
 	font-family: 'Open Sans','Helvetica Neue',Arial,'Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
 }
@@ -118,11 +117,10 @@ p code{
 .headerwrap{
 	width: 1200px;
 	height: 50px; 
-	color: white;
+	float:left;
 	padding-bottom: 10px;
-	/*background-color: rgba(0, 0, 0, 0.7);*/
+	background-color: rgba(0, 0, 0, 1);
 	margin: 0 auto;
-	/*background: white;*/
 	border-bottom: 1px dashed rgba(0,0,0,0.2);
 	transition: 1s;
 	-moz-transition:1s;

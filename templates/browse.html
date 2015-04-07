@@ -73,20 +73,20 @@
 		
 		<div class="articlelist">
 			{% for article in articles %}
-			<div class="article">
-				<div class="timecontainer">
-					{% if article['insert_time'] %}
-					<li class="artyear">{{ article['insert_time'].year }}</li>
-					<li class="artdate spefont">{{ article['insert_time'].day }}</li>
-					<li class="artmonth">{{ article['insert_time'].month }} 月</li>
-					{% end %}
+				<div href="/article/{{ article['collection_first_article'] }}" class="article" onclick="window.location='/article/{{ article['collection_first_article'] }}';">
+					<div class="timecontainer">
+						{% if article['insert_time'] %}
+						<li class="artyear">{{ article['insert_time'].year }}</li>
+						<li class="artdate spefont">{{ article['insert_time'].day }}</li>
+						<li class="artmonth">{{ article['insert_time'].month }} 月</li>
+						{% end %}
+					</div>
+					<div class="artmain">
+						<h1 class="arttitle"><a href="/article/{{ article['id'] }}" class="spefont">{{ article['title'] }}</a></h1>
+						<div class="artfrom">来自  <a href="/article/{{ article['collection_first_article'] }}" class="artcollection">{{ article['book_title'] }} - {{ article['collection_title'] }}</a> 中的文章</div>
+						<div class="artdes">{% raw article['description'] %}</div>
+					</div>
 				</div>
-				<div class="artmain">
-					<h1 class="arttitle"><a href="/article/{{ article['id'] }}" class="spefont">{{ article['title'] }}</a></h1>
-					<div class="artfrom">来自  <a href="/article/{{ article['collection_first_article'] }}" class="artcollection">{{ article['book_title'] }} - {{ article['collection_title'] }}</a> 中的文章</div>
-					<div class="artdes">{% raw article['description'] %}</div>
-				</div>
-			</div>
 			{% end %}
 		</div>
 	</div>

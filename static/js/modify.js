@@ -5,8 +5,7 @@ $(document).ready(function(){
 
 	$(".articlesubmit").on('click', function(){
 		var theform = document.getElementById("editdata");
-		var previewcon = document.getElementById("previewtextcontainer");
-		previewcon.innerHTML = get_preview_content();
+		$('#previewtextcontainer').val(get_preview_content());
 		$('#arttitle').val(get_title());
 		var description = Preview.preview.children[2].innerHTML;
 		if (Preview.preview.children[3]) {

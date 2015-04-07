@@ -53,8 +53,12 @@ $(document).ready(function(){
 		}
 	});
 	remove_block();
+
 });
 
+function get_article_content(){
+	return $('#writing').html();
+}
 
 function get_article_index(){
 	var article_index = [];
