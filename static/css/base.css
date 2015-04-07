@@ -44,6 +44,10 @@ p code.hljs, li code.hljs{
 	font-weight: bold;
 }
 
+span.hljs-title, span.hljs-prompt{
+	color: #900 !important;
+}
+
 pre{
 	background: #f8f8f8;
 	line-height: 1.5em;
