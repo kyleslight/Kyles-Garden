@@ -271,3 +271,9 @@ span.MathJax_SVG{
 		margin-left: 20px;
 	}
 }
+
+@media (max-width: 768px) {
+	.arttitle {
+		font-size: 33px;
+	}
+}

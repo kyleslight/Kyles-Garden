@@ -51,6 +51,7 @@ span.hljs-title, span.hljs-prompt{
 
 pre{
 	background: #f8f8f8;
+	font-size: 0.9em;
 	line-height: 1.5em;
 	border-radius: 5px;
 	white-space: pre-wrap;
@@ -69,7 +70,7 @@ hr{
 	margin-top: 0px;
     margin-bottom: 30px;
     border: 0;
-    border-top: 1px solid rgba(200, 200, 200, 0.1);
+    border-top: 1px solid rgba(200, 200, 200, 0.5);
 }
 
 p code{
