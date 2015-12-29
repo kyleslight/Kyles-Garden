@@ -267,3 +267,9 @@ a.spearticlelisttitle:hover{
     	width: 650px;
     }
 }
+
+@media (min-width: 768px) and (max-width: 992px) {
+	.articlewrap {
+		width: auto;
+	}
+}
