@@ -61,7 +61,7 @@
 	width: 100%; 
 	text-align: center;
 }
-.articleshare, .articlesubmit{
+.articleshare, .articlesubmit, .articlepreview{
 	margin-right: -2px;
 	font-size: 30px;
 	border: 1px solid #CCC;
@@ -69,7 +69,7 @@
 	border-radius: 10px;
 }
 
-.articleshare{
+.articleshare, .articlepreview{
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 	border-right: 2px solid;

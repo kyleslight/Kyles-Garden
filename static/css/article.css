@@ -248,6 +248,10 @@ a.spearticlelisttitle:hover{
 	float: left;
 }
 
+.MathJax_SVG_Display {
+	overflow-x: auto;
+}
+
 @media (min-width: 1200px) {
     .readareawrap {
     	float: left;
