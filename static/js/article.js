@@ -80,5 +80,6 @@ function get_article_index(){
 }
 
 function remove_block(){
+	$("[type='math/tex']").prev().remove();
 	$("[type='math/tex; mode=display']").prev().remove();
 }
