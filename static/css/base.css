@@ -1,6 +1,7 @@
 body{
 	background: url("/static/image/bg.png");
 	margin: 0;
+	word-wrap: break-word;
 	font-family: 'Open Sans','Helvetica Neue',Arial,'Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
 }
 
@@ -122,8 +123,8 @@ p code{
 	margin: 0 auto;
 	border: 0;
 	border-bottom: 1px dashed rgba(0,0,0,0.2);
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
 	transition: 1s;
 	-moz-transition:1s;
 	-webkit-transition:1s;
