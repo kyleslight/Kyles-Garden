@@ -4,7 +4,7 @@ body{
 	font-family: 'Open Sans','Helvetica Neue',Arial,'Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
 }
 
-a{
+a, a:hover{
 	color: #680;
 	text-decoration:none;
 	transition: 0.3s;
@@ -76,7 +76,6 @@ p code{
 }
 
 .wrap{
-	width: 1200px;
 	background: rgba(0,0,0,0.9);
 	margin: 0 auto;
 	border-bottom-left-radius: 4px;
@@ -119,9 +118,6 @@ p code{
 }
 
 .headerwrap{
-	width: 1200px;
-	height: 50px; 
-	float:left;
 	padding-bottom: 10px;
 	background-color: rgba(0, 0, 0, 1);
 	margin: 0 auto;
@@ -137,7 +133,6 @@ p code{
 }
 
 .header{
-	width: 1200px;
 	margin: 0 auto;
 }
 
@@ -207,6 +202,7 @@ p code{
 	margin: 0 auto;
 	color: #888;
 	font-size: 0.9em;
+	overflow-x: auto;
 }
 
 .readareawrap{

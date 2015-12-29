@@ -1,12 +1,12 @@
 .browsewrap{
-	width: 1200px;
+	/*width: 1200px;*/
 	margin: 0 auto;
 }
 
 .booklist{
 	float: left;
 	width: 250px;
-	margin-top: 20px;
+	margin-top: 15px;
 	margin-right: 19px;
 	background: white;
 	border-radius: 4px;
@@ -172,14 +172,15 @@ a.expandaddcollect:hover, a.deletethisbook:hover{
 
 
 .articlelist{
-	margin-top: 20px;
-	float: left;
-	width: 929px;
+	margin-top: 15px;
 }
 
+.largearticlelist {
+	float: left;
+	width: 870px;
+}
 
 .article{
-	float: left;
 	display:block;
 	background-color: white;
 	border-radius: 4px;
@@ -188,7 +189,7 @@ a.expandaddcollect:hover, a.deletethisbook:hover{
 	padding-top: 0px;
 	padding-right: 30px;
 	border-bottom: 2px solid #CCC;
-	margin-bottom: 19px;
+	margin-bottom: 13px;
 	transition: 1s;
 	-moz-transition:1s;
 	-webkit-transition:1s;
@@ -225,8 +226,8 @@ a.expandaddcollect:hover, a.deletethisbook:hover{
 
 .artmain{
 	float: left;
-	margin-left: 30px;
-	width: 785px;
+	width: 735px;
+	margin-left: 20px;
 }
 
 span.MathJax_SVG{
@@ -256,4 +257,15 @@ span.MathJax_SVG{
 	color: #888;
 	font-size: 0.9em;
 	overflow: hidden;
+}
+
+@media (min-width: 992px) and (max-width: 1200px){
+    .largearticlelist {
+    	width: 670px;
+    }
+
+    .artmain{
+		width: 535px;
+		margin-left: 20px;
+	}
 }

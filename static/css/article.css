@@ -1,13 +1,10 @@
 .articlewrap{
-	width: 1200px;
 	margin: 0 auto;
 }
 
 .readareawrap{
 	background-color: white;
-	width: 877px;
 	padding: 25px;
-	float: left;
 	margin-top: 20px;
 	border: 1px solid #CCC;
 	box-shadow: 0 0 5px #CCC;
@@ -57,7 +54,7 @@ div.sharereadwrap{
 }
 
 .leftsharereadwrap{
-	margin-left: 271px;
+	margin-left: 268px;
 }
 
 .book{
@@ -249,4 +246,18 @@ a.spearticlelisttitle:hover{
 	padding: 10px 10px;
 	margin-top: -11px;
 	float: left;
+}
+
+@media (min-width: 1200px) {
+    .readareawrap {
+    	float: left;
+    	width: 870px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px){
+    .readareawrap {
+    	float: left;
+    	width: 650px;
+    }
 }

@@ -26,8 +26,8 @@
 {% end %}
 
 {% block main %}
-	<div class="articlewrap">
-		<div class="articlelist">
+	<div class="articlewrap container">
+		<div class="articlelist hidden-sm hidden-xs">
 			<div class="collectiontitle spefont"><span id="collectiontitletext">{{ collection['title'] }}</span>
 				{% if SU %}
 				<a href="#" id="modifycollection">Modify</a>
@@ -57,7 +57,7 @@
 			{% end %}
 		
 		</div>
-		<div class="readareawrap">
+		<div class="readareawrap container">
 			<div id="store_author" class="none">
 				<div id="store_author_container">
 					<img src="{{ static_url("image/author.jpg") }}" alt="author_img" id="author_img">

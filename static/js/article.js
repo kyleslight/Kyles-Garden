@@ -23,21 +23,24 @@ $(document).ready(function(){
 
 	$(window).scroll(function(){
 		var top = $(window).scrollTop();
-		if (top > 0.1*$(window).height()) {
-			if (!$(".readareawrap").hasClass("leftsharereadwrap")) {
-				$(".readareawrap").addClass("leftsharereadwrap");
-				$(".articlelist").addClass("fixedarticlelist");
-				$(".articlelist").stop();
-				$(".articlelist").animate({opacity:0.3}, 1000);
-			};
-		}else{
-			if ($(".readareawrap").hasClass("leftsharereadwrap")) {
-				$(".readareawrap").removeClass("leftsharereadwrap");
-				$(".articlelist").removeClass("fixedarticlelist");
-				$(".articlelist").stop();
-				$(".articlelist").animate({opacity:1}, 1000);
+		var match = window.matchMedia("screen and (min-width: 992px");
+		if (match.matches) {
+			if (top > 0.1*$(window).height()) {
+				if (!$(".readareawrap").hasClass("leftsharereadwrap")) {
+					$(".readareawrap").addClass("leftsharereadwrap");
+					$(".articlelist").addClass("fixedarticlelist");
+					$(".articlelist").stop();
+					$(".articlelist").animate({opacity:0.3}, 1000);
+				};
+			}else{
+				if ($(".readareawrap").hasClass("leftsharereadwrap")) {
+					$(".readareawrap").removeClass("leftsharereadwrap");
+					$(".articlelist").removeClass("fixedarticlelist");
+					$(".articlelist").stop();
+					$(".articlelist").animate({opacity:1}, 1000);
+				}
 			}
-		}
+		};
 		
 	});
 
@@ -55,6 +58,7 @@ $(document).ready(function(){
 	remove_block();
 
 });
+
 
 function get_article_content(){
 	return $('#writing').html();
