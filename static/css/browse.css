@@ -1,6 +1,8 @@
 .browsewrap{
 	/*width: 1200px;*/
 	margin: 0 auto;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .booklist{
@@ -249,7 +251,7 @@ span.MathJax_SVG{
 .artfrom{
 	color: #CCC;
 	font-size: 0.8em;
-	margin-top: 5px;
+	margin-top: 10px;
 }
 
 .artdes{
