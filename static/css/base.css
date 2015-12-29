@@ -175,6 +175,7 @@ p code{
 }
 .footerwrap{
 	/*color: white;*/
+	clear: both;
 	padding: 10px 0;
 	/*width: 1200px;*/
 	text-align: center;
