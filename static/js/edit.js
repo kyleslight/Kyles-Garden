@@ -29,12 +29,15 @@ $(document).ready(function(){
 		var maintext = get_preview_content();
 		var share_id = calcMD5(maintext);
 
+		$('#arttitle').val(get_title());
+		$('#ori_text').val($('#writing').val());
 		var post_data = {
 			'arttitle' : $('#arttitle').val(),
 			'maintext' : maintext,
+			'ori_text' : $('#ori_text').val(),
 			'share_id' : share_id
 		};
-		$('#arttitle').val(get_title());
+		console.log(post_data);
 		$.postJSON("/share/add/", post_data, function(data){
 			window.location = "/share/" + share_id;
 		});

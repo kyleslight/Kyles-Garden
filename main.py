@@ -119,23 +119,6 @@ class ArticleHandler(BaseHandler):
 		self.render('article.html', maintext = maintext, article_title = article_title, article_date = article_date, collection = collection, collection_articles = collection_articles, aid = aid, SU = SU)
 
 
-class ShareHandler(BaseHandler):
-    def get(self, share_id):
-    	SU = self.get_secure_cookie("SU")
-
-    	test_database = data.DatabaseHandler("test")
-    	ins = "select title, content from share where share_id = '%s'" %share_id
-
-    	share = test_database.fetch_one(ins)
-    	maintext = test_database.fetch_one(ins)['content']
-    	title = test_database.fetch_one(ins)['title']
-
-    	print share
-
-    	self.render('share.html', maintext = maintext, article_title = title, SU = SU)
-
-
-
 class BookCreateHandler(BaseHandler):
 	@tornado.web.authenticated
 	def post(self):
@@ -311,7 +294,7 @@ class ArticleTobeModifyHandler(BaseHandler):
 		test_database = data.DatabaseHandler("test")
 		ins = "select ori_text, collect_id from article_6 where(id = %s)" %aid
 		article_tobe_modify = test_database.fetch_one(ins)
-		self.render('modify.html', aid = aid, article_tobe_modify = article_tobe_modify, SU = SU, is_grap = is_grap)
+		self.render('modify.html', aid = aid, article_tobe_modify = article_tobe_modify, SU = SU, is_grap = is_grap, is_share = False)
 
 class ArticleTobeModifyGrapHandler(BaseHandler):
 	@tornado.web.authenticated
@@ -322,7 +305,7 @@ class ArticleTobeModifyGrapHandler(BaseHandler):
 		test_database = data.DatabaseHandler("test")
 		ins = "select ori_text, collect_id from article_6 where(id = %s)" %aid
 		article_tobe_modify = test_database.fetch_one(ins)
-		self.render('modify.html', aid = aid, article_tobe_modify = article_tobe_modify, SU = SU, is_grap = is_grap)
+		self.render('modify.html', aid = aid, article_tobe_modify = article_tobe_modify, SU = SU, is_grap = is_grap, is_share = False)
 
 
 class ArticleModifyHandler(BaseHandler):
@@ -359,6 +342,21 @@ class ArticleDeleteHandler(BaseHandler):
 
 		self.redirect('/')
 
+class ShareHandler(BaseHandler):
+    def get(self, share_id):
+    	SU = self.get_secure_cookie("SU")
+
+    	test_database = data.DatabaseHandler("test")
+    	ins = "select title, content from share where share_id = '%s'" %share_id
+
+    	share = test_database.fetch_one(ins)
+    	maintext = test_database.fetch_one(ins)['content']
+    	title = test_database.fetch_one(ins)['title']
+
+    	print share
+
+    	self.render('share.html', maintext = maintext, article_title = title, SU = SU)
+
 class ShareAddHandler(BaseHandler):
 	@tornado.web.authenticated
 	def post(self):
@@ -373,12 +371,46 @@ class ShareAddHandler(BaseHandler):
 	def create(self):
 		title = self.get_argument('arttitle').encode('utf-8')
 		maintext = self.get_argument('maintext').encode('utf-8')
+		ori_text = self.get_argument('ori_text').encode('utf-8')
+		share_id = self.get_argument('share_id')
+
+		print (title, share_id)
+
+		test_database = data.DatabaseHandler("test")
+		ins = "insert into share(title, content, ori_text, share_id) value(%s, %s, %s, %s)"
+		para = (title, maintext, ori_text, share_id)
+		result = test_database.exe_ins(ins, para)
+
+class ShareTobeModifyHandler(BaseHandler):
+	@tornado.web.authenticated
+	def get(self, sid):
+		SU = self.get_secure_cookie("SU")
+
+		test_database = data.DatabaseHandler("test")
+		ins = "select title, ori_text, share_id from share where(share_id = '%s')" %sid
+		share_article_tobemodify = test_database.fetch_one(ins)
+		print share_article_tobemodify
+		self.render('modify.html', share_id = sid, article_tobe_modify = share_article_tobemodify, SU = SU, is_grap = False, is_share = True)
+
+class ShareModifyHandler(BaseHandler):
+    @tornado.web.authenticated
+    def post(self, sid):
+    	self.modify(sid)
+
+    	test_database = data.DatabaseHandler("test")
+    	url = "/share/%s" %sid
+
+    def modify(self, sid):
+		title = self.get_argument('arttitle').encode('utf-8')
+		maintext = self.get_argument('maintext').encode('utf-8')
 		share_id = self.get_argument('share_id')
 
 		test_database = data.DatabaseHandler("test")
-		ins = "insert into share(title, content, share_id) value(%s, %s, %s)"
+		ins = "update share set title = %s, content = %s where share_id = %s"
 		para = (title, maintext, share_id)
 		result = test_database.exe_ins(ins, para)
+
+
 
 class  ShareCollectionHandler(BaseHandler):
 	@tornado.web.authenticated
@@ -392,7 +424,7 @@ class  ShareCollectionHandler(BaseHandler):
 		shares_page = ""
 
 		for share in shares:
-			shares_page = shares_page + ' <a href="/share/'+ share['share_id'] +'">'+ share['share_id'] +' ( ' +share['title'] + ' ) ' +'</a> '
+			shares_page = shares_page + ' <a href="/share/'+ share['share_id'] +'">'+ 'Shared : ' +' [ ' +share['title'] + ' ] ' +'</a> <br>'
 
 		self.write(shares_page)
 
@@ -405,6 +437,7 @@ class LogoutHandler(BaseHandler):
 class TestmathHandler(BaseHandler):
 	def get(self):
 		self.render('testmath.html')
+
 
 
 settings = dict(
@@ -427,6 +460,8 @@ if __name__ == "__main__":
 			(r'/logout', LogoutHandler),
 			(r'/article/(\w+)', ArticleHandler),
 			(r'/share/add/', ShareAddHandler),
+			(r'/share/edit/(\w+)', ShareTobeModifyHandler),
+			(r'/share/modify/(\w+)', ShareModifyHandler),
 			(r'/sharecollection', ShareCollectionHandler),
 			(r'/share/(\w+)', ShareHandler),
 			(r'/edit/article/(\w+)', ArticleTobeModifyHandler),

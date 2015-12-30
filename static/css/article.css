@@ -6,7 +6,6 @@
 
 .readareawrap{
 	background-color: white;
-	padding: 20px;
 	margin-top: 20px;
 	border: 1px solid #CCC;
 	box-shadow: 0 0 5px #CCC;
@@ -15,14 +14,13 @@
 
 div.sharereadwrap{
 	background-color: white;
-	width: 877px;
-	padding: 25px;
+	padding: 20px;
 	float:none;
 	border: 1px solid #CCC;
 	box-shadow: 0 0 5px #CCC;
 	border-radius: 4px;
 	margin:0 auto;
-	margin-top: 30px;
+	margin-top: 15px;
 }
 
 .readarea li{

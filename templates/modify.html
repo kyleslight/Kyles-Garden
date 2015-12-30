@@ -46,11 +46,19 @@
 			</textarea>
 			</div>
 		</div>
+		{% if is_share %}
+		<form id="editdata" name="editdata" action="/share/modify/{{ share_id }}" method="post">
+		{% else %}
 		<form id="editdata" name="editdata" action="/modify/article/{{ aid }}" method="post">
+		{% end %}
 			{% raw xsrf_form_html() %}
 			<input type="text" class="arttitle none" name='arttitle' id="arttitle">
 			<input type="text" class="artdes none" name='artdes' id="artdes">
+			{% if is_share %}
+			<input type="text" class="cid none" name='cid' id='cid' value="1">
+			{% else %}
 			<input type="text" class="cid none" name='cid' id='cid' value="{{ article_tobe_modify['collect_id'] }}">
+			{% end %}
 			<textarea class="none" name="ori_text" id="ori_text" cols="30" rows="10"></textarea>
 			<div class="readareawrap">
 				<div class="previewarea">
