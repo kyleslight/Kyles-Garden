@@ -33,7 +33,7 @@ th, td{
 
 code.hljs{
 	display: inline-block;
-	font-family: monospace, "Consolas", "Sayo UV Mono DL","Sayo UV Mono BG","DejaVu Sans Mono";
+	font-family: monospace, "Source Code Pro", "Consolas", "Sayo UV Mono DL","Sayo UV Mono BG","DejaVu Sans Mono";
 	line-height: 1.3em;
 	font-weight: bolder;
 }
@@ -231,6 +231,10 @@ p code{
 	border-left: 13px solid #680;
 	padding-left: 10px;
 	margin-left: -20px;
+}
+
+.tablewrap {
+	overflow-x: auto;
 }
 
 .logbox{

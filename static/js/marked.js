@@ -802,14 +802,14 @@ Renderer.prototype.paragraph = function(text) {
 };
 
 Renderer.prototype.table = function(header, body) {
-  return '<table>\n'
+  return '<div class="tablewrap"><table>\n'
     + '<thead>\n'
     + header
     + '</thead>\n'
     + '<tbody>\n'
     + body
     + '</tbody>\n'
-    + '</table>\n';
+    + '</table></div>\n';
 };
 
 Renderer.prototype.tablerow = function(content) {

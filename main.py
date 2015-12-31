@@ -399,15 +399,16 @@ class ShareModifyHandler(BaseHandler):
 
     	test_database = data.DatabaseHandler("test")
     	url = "/share/%s" %sid
+    	self.redirect(url)
 
     def modify(self, sid):
 		title = self.get_argument('arttitle').encode('utf-8')
 		maintext = self.get_argument('maintext').encode('utf-8')
-		share_id = self.get_argument('share_id')
+		ori_text = self.get_argument('ori_text').encode('utf-8')
 
 		test_database = data.DatabaseHandler("test")
-		ins = "update share set title = %s, content = %s where share_id = %s"
-		para = (title, maintext, share_id)
+		ins = "update share set title = %s, ori_text = %s, content = %s where share_id = %s"
+		para = (title, ori_text, maintext, sid)
 		result = test_database.exe_ins(ins, para)
 
 

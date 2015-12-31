@@ -37,7 +37,6 @@ $(document).ready(function(){
 			'ori_text' : $('#ori_text').val(),
 			'share_id' : share_id
 		};
-		console.log(post_data);
 		$.postJSON("/share/add/", post_data, function(data){
 			window.location = "/share/" + share_id;
 		});

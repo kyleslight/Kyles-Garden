@@ -35,6 +35,7 @@ var Preview = {
 		//  the results of running MathJax are more accurate that way.)
 		//
   		SwapBuffers: function () {
+        console.log('swaped');
     		var buffer = this.preview, preview = this.buffer;
     		this.buffer = buffer; this.preview = preview;
     		buffer.style.display = "none";
@@ -92,6 +93,7 @@ var Preview = {
   //  and swap the buffers to show the results.
   //
   		PreviewDone: function () {
+          console.log('Preview Done');
           this.mjRunning = false;
           text = this.buffer.innerHTML;
       // replace occurrences of &gt; at the beginning of a new line
@@ -99,7 +101,7 @@ var Preview = {
           text = text.replace(/&gt;/mg, '>').replace(/&lt;/mg, '<').replace(/&#39;/g, "'");
 
           this.buffer.innerHTML = marked (text);
-          if (location.pathname.slice(0, 5) == '/edit') {
+          if (location.pathname.slice(0, 5) == '/edit' || location.pathname.slice(0, 11) == '/share/edit') {
             this.SwapBuffers();
           };
   		},
