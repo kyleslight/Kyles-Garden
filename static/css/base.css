@@ -35,7 +35,7 @@ code.hljs{
 	display: inline-block;
 	font-family: Menlo,Monaco,Consolas,"Andale Mono","lucida console","Courier New",monospace;
 	line-height: 1.3em;
-	/*font-weight: bolder;*/
+	font-weight: bold;
 }
 
 p code.hljs, li code.hljs{
@@ -44,7 +44,7 @@ p code.hljs, li code.hljs{
 	font-family: Menlo,Monaco,Consolas,"Andale Mono","lucida console","Courier New",monospace;
 	color: #900 !important;
 	border-radius: 4px;
-	/*font-weight: bolder;*/
+	font-weight: bold;
 }
 
 span.hljs-title, span.hljs-prompt{
