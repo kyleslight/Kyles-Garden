@@ -33,17 +33,18 @@ th, td{
 
 code.hljs{
 	display: inline-block;
-	font-family: monospace, "Source Code Pro", "Consolas", "Sayo UV Mono DL","Sayo UV Mono BG","DejaVu Sans Mono";
+	font-family: Menlo,Monaco,Consolas,"Andale Mono","lucida console","Courier New",monospace;
 	line-height: 1.3em;
-	font-weight: bolder;
+	/*font-weight: bolder;*/
 }
 
 p code.hljs, li code.hljs{
 	background: transparent;
 	padding: 0.2em;
+	font-family: Menlo,Monaco,Consolas,"Andale Mono","lucida console","Courier New",monospace;
 	color: #900 !important;
 	border-radius: 4px;
-	font-weight: bolder;
+	/*font-weight: bolder;*/
 }
 
 span.hljs-title, span.hljs-prompt{
