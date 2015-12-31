@@ -33,7 +33,7 @@ th, td{
 
 code.hljs{
 	display: inline-block;
-	font-family: Menlo,Monaco,Consolas,"Andale Mono","lucida console","Courier New",monospace;
+	font-family: monospace, Menlo,Monaco,Consolas,"Andale Mono","lucida console","Courier New";
 	line-height: 1.3em;
 	font-weight: bold;
 }
@@ -41,7 +41,7 @@ code.hljs{
 p code.hljs, li code.hljs{
 	background: transparent;
 	padding: 0.2em;
-	font-family: Menlo,Monaco,Consolas,"Andale Mono","lucida console","Courier New",monospace;
+	font-family: monospace, Menlo,Monaco,Consolas,"Andale Mono","lucida console","Courier New";
 	color: #900 !important;
 	border-radius: 4px;
 	font-weight: bold;
