@@ -209,7 +209,7 @@ p code{
 
 .center {
 	text-align: center;
-	margin: 0 auto;
+	margin: 0 auto 10px;
 	color: #888;
 	font-size: 0.9em;
 	overflow-x: auto;

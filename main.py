@@ -353,8 +353,6 @@ class ShareHandler(BaseHandler):
     	maintext = test_database.fetch_one(ins)['content']
     	title = test_database.fetch_one(ins)['title']
 
-    	print share
-
     	self.render('share.html', maintext = maintext, article_title = title, SU = SU)
 
 class ShareAddHandler(BaseHandler):
@@ -374,8 +372,6 @@ class ShareAddHandler(BaseHandler):
 		ori_text = self.get_argument('ori_text').encode('utf-8')
 		share_id = self.get_argument('share_id')
 
-		print (title, share_id)
-
 		test_database = data.DatabaseHandler("test")
 		ins = "insert into share(title, content, ori_text, share_id) value(%s, %s, %s, %s)"
 		para = (title, maintext, ori_text, share_id)
@@ -389,7 +385,6 @@ class ShareTobeModifyHandler(BaseHandler):
 		test_database = data.DatabaseHandler("test")
 		ins = "select title, ori_text, share_id from share where(share_id = '%s')" %sid
 		share_article_tobemodify = test_database.fetch_one(ins)
-		print share_article_tobemodify
 		self.render('modify.html', share_id = sid, article_tobe_modify = share_article_tobemodify, SU = SU, is_grap = False, is_share = True)
 
 class ShareModifyHandler(BaseHandler):

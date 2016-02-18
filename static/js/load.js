@@ -35,7 +35,6 @@ var Preview = {
 		//  the results of running MathJax are more accurate that way.)
 		//
   		SwapBuffers: function () {
-        console.log('swaped');
     		var buffer = this.preview, preview = this.buffer;
     		this.buffer = buffer; this.preview = preview;
     		buffer.style.display = "none";
@@ -93,7 +92,6 @@ var Preview = {
   //  and swap the buffers to show the results.
   //
   		PreviewDone: function () {
-          console.log('Preview Done');
           this.mjRunning = false;
           text = this.buffer.innerHTML;
       // replace occurrences of &gt; at the beginning of a new line
