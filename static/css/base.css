@@ -240,6 +240,10 @@ p code{
 	margin-bottom: 10px;
 }
 
+.tablewrap table {
+	margin: 10px auto;
+}
+
 .logbox{
 	display: none;
 }
