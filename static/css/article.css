@@ -226,10 +226,27 @@ a.spearticlelisttitle:hover{
 }
 
 #writing h3{
+	font-size: 1.4em;
+	font-family: "Verdandi Modern","Georgia","Verdandi Sung";
+	font-weight: bolder;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+#writing h4{
 	font-size: 1.2em;
 	font-family: "Verdandi Modern","Georgia","Verdandi Sung";
 	font-weight: bolder;
 	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+#writing h5{
+	font-size: 1.1em;
+	font-family: "Verdandi Modern","Georgia","Verdandi Sung";
+	font-weight: bolder;
+	margin-top: 30px;
+	margin-bottom: 10px;
 }
 
 #store_author_container{
