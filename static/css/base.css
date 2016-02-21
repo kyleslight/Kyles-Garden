@@ -223,6 +223,7 @@ p code{
 
 .readareawrap p{
 	line-height: 1.5em;
+	overflow-x: auto;
 }
 
 .readareawrap li{
