@@ -4,6 +4,7 @@ $(document).ready(function(){
 	Preview.Update();
 
 	$(".articlesubmit").on('click', function(){
+		define_heading_id();
 		var theform = document.getElementById("editdata");
 		$('#previewtextcontainer').val(get_preview_content());
 		$('#arttitle').val(get_title());
@@ -16,9 +17,10 @@ $(document).ready(function(){
 		};
 		
 		description = description + '...';
-		
+
 		$('#artdes').val(description);
 		$('#ori_text').val($('#writing').val());
+
 		theform.submit();
 	})
 })
@@ -57,6 +59,16 @@ function center_image(){
 			$(this).addClass('center');
 		}else{
 			$(this).removeClass('center');
+		}
+	});
+}
+
+function define_heading_id() {
+	$('h2').each(function () {
+		var $next = $(this).next();
+		if($next.text().slice(0, 1) === '=') {
+			$(this).attr('id', $next.text().slice(1));
+			$(this).next().remove();
 		}
 	});
 }

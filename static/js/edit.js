@@ -4,6 +4,7 @@ $(document).ready(function(){
 	Preview.Update();
 
 	$(".articlesubmit").on('click', function(){
+		define_heading_id();
 		var theform = document.getElementById("editdata");
 		var previewcon = document.getElementById("previewtextcontainer");
 		previewcon.innerHTML = get_preview_content();
@@ -71,6 +72,16 @@ function highlight_code(){
 	$('#previewbuffer code, #preview code').each(function(i, block) {
     	hljs.highlightBlock(block);
   	});
+}
+
+function define_heading_id() {
+	$('h2').each(function () {
+		var $next = $(this).next();
+		if($next.text().slice(0, 1) === '=') {
+			$(this).attr('id', $next.text().slice(1));
+			$(this).next().remove();
+		}
+	});
 }
 
 function center_image(){
