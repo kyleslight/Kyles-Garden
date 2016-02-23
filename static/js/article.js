@@ -24,13 +24,16 @@ $(document).ready(function(){
 	$(window).scroll(function(){
 		var top = $(window).scrollTop();
 		var match = window.matchMedia("screen and (min-width: 992px");
+		var isHovered = $('.articlelist').is(":hover");
 		if (match.matches) {
 			if (top > 0.1*$(window).height()) {
 				if (!$(".readareawrap").hasClass("leftsharereadwrap")) {
 					$(".readareawrap").addClass("leftsharereadwrap");
 					$(".articlelist").addClass("fixedarticlelist");
-					$(".articlelist").stop();
-					$(".articlelist").animate({opacity:0.3}, 1000);
+					if(!isHovered) {
+						$(".articlelist").stop();
+						$(".articlelist").animate({opacity:0.3}, 1000);
+					}
 				};
 			}else{
 				if ($(".readareawrap").hasClass("leftsharereadwrap")) {
