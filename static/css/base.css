@@ -223,9 +223,6 @@ p code{
 
 .readareawrap p{
 	line-height: 1.5em;
-}
-
-.readareawrap p .MathJax_SVG {
 	overflow-x: auto;
 }
 
