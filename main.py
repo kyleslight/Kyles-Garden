@@ -409,7 +409,6 @@ class ShareModifyHandler(BaseHandler):
 
 
 class  ShareCollectionHandler(BaseHandler):
-	@tornado.web.authenticated
 	def get(self):
 		
 		test_database = data.DatabaseHandler("test")
