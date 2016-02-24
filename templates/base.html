@@ -56,6 +56,7 @@
 			<form action="/logout" method="post" class="logoutbox logbox">
 				{% raw xsrf_form_html() %}
 				<a href="/logout" id="logoutsubmit">Sign out</a>
+				<a href="/sharecollection">To Share Collection</a>
 			</form>
 			{% else %}
 			<form action="/login" method="post" class="loginbox logbox">
