@@ -227,7 +227,7 @@ p code{
 }
 
 .readareawrap li{
-	list-style: disc;
+	list-style: inherit;
 }
 
 .readareawrap h2{
