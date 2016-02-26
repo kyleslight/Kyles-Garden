@@ -36,6 +36,7 @@
 <body>
 	<div class="wrap">
 		<!-- header -->
+		{% block header %}
 		<div class="headerwrap navbar navbar-default">
 			<div class="header container nav-header">
 				<div class="logo spefont"><a href="/" class="home">Kyles' Garden</a></div>
@@ -47,7 +48,7 @@
 				</div>
 			</div>
 		</div>
-
+		{% end %}
 
 		<!-- main -->
 		<div class="mainwrap">
@@ -72,12 +73,14 @@
 		</div>
 
 		<!-- footer -->
+		{% block footer %}
 		<div class="footerwrap spefont container">
 			Copyright (c) 2014-2016
 			<a href="/article/2" target="_blank">Kyles Light</a>. <br>
 			Powered by <a href="https://github.com/tornadoweb/tornado" target="_blank">Tornado</a>.<br>
 			<span href="http://www.miitbeian.gov.cn/" target="_blank" id="ForCheck">鄂 ICP 备 15003296 号</span>
 		</div>
+		{% end %}
 	</div>
 
 	<script type="text/x-mathjax-config">

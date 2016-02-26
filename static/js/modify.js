@@ -20,7 +20,6 @@ $(document).ready(function(){
 
 		$('#artdes').val(description);
 		$('#ori_text').val($('#writing').val());
-
 		theform.submit();
 	})
 })

@@ -216,6 +216,11 @@ p code{
 	overflow-x: auto;
 }
 
+.image-display {
+	text-align: center;
+	overflow-x: auto;
+}
+
 .readareawrap{
 	line-height: 1.7em;
 	font-size: 18px;

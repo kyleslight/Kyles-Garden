@@ -104,6 +104,7 @@ class ArticleHandler(BaseHandler):
 		test_database = data.DatabaseHandler("test")
 		ins = "select title, content from article_6 where id = %s" %aid
 		maintext = test_database.fetch_one(ins)['content']
+
 		article_title = test_database.fetch_one(ins)['title']
 
 		ins_2 = "select collect_id, insert_time from article_6 where id = %s" %aid
