@@ -82,6 +82,14 @@
 			</div>
 			<div id="writing">
 				{% raw maintext %}
+				<div class="sm visible-sm-block visible-xs-block article-navgation clearfix">
+					{% if caids['previous_id'] != -1 %}
+						<a class="previous-article" href="/article/{{ caids['previous_id'] }}"><span class="glyphicon glyphicon-chevron-left"></span> Previous</a>
+					{% end %}
+					{% if caids['next_id'] != -1 %}
+						<a class="next-article" href="/article/{{ caids['next_id'] }}">Next <span class="glyphicon glyphicon-chevron-right"></span> </a>
+					{% end %}
+				</div>
 			</div>
 		</div>
 	</div>

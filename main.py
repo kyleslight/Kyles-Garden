@@ -117,7 +117,28 @@ class ArticleHandler(BaseHandler):
 		ins_4 = "select title, id from article_6 where collect_id = %s" %collection_id
 		collection_articles = test_database.fetch_all(ins_4)
 
-		self.render('article.html', maintext = maintext, article_title = article_title, article_date = article_date, collection = collection, collection_articles = collection_articles, aid = aid, SU = SU)
+		previous_id = -1;
+		next_id = -1;
+		previous_flag = False
+		next_flag = False
+		for collection_article in collection_articles:
+			if next_flag:
+				next_id = collection_article['id']
+				next_flag = False
+			if int(aid) == int(collection_article['id']):
+				previous_flag = True
+				next_flag = True
+			if not previous_flag:
+				previous_id = collection_article['id']
+			print ('article ids', aid, previous_id, next_id)
+
+		caids = {
+			'previous_id' : int(previous_id),
+			'aid' : int(aid),
+			'next_id' : int(next_id)
+		}
+
+		self.render('article.html', maintext = maintext, article_title = article_title, article_date = article_date, collection = collection, collection_articles = collection_articles, aid = aid, caids = caids, SU = SU)
 
 
 class BookCreateHandler(BaseHandler):

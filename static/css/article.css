@@ -248,6 +248,14 @@ a.spearticlelisttitle:hover{
     margin-bottom: 40px;
 }
 
+.previous-article {
+	float: left;
+}
+
+.next-article {
+	float: right;
+}
+
 #writing{
 	overflow-x: auto;
 	font-family: "Verdandi Modern","Georgia","Verdandi Sung";
