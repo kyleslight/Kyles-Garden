@@ -28,7 +28,7 @@ div.sharereadwrap{
 	list-style: disc;
 }
 
-.writing ul, .writing ol {
+#writing ul, #writing ol {
 	overflow-x: auto;
 }
 
