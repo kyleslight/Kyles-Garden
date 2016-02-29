@@ -244,6 +244,7 @@ a.spearticlelisttitle:hover{
 	display: none;
 	background: rgba(250, 250, 250, 1);
     padding: 10px;
+    padding-top: 20px;
     margin-bottom: 40px;
 }
 
