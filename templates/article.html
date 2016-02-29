@@ -53,15 +53,17 @@
 		</div>
 		<div class="readareawrap container">
 			<div id="store_author" class="none">
-				<div id="store_author_container">
-					<img src="{{ static_url("image/author.jpg") }}" alt="author_img" id="author_img">
-					<span id="article_info_block">
-						<a href="/article/2" id="author_name" class="spefont" target="_blank">Kyles Light</a> · 
-						<span id="article_date" class="spefont">{{ article_date }}</span>
-					</span>
+				<div class="statement-info">
+					<div class="clearfix article-info">
+						<img src="{{ static_url("image/author.jpg") }}" alt="author_img" id="author_img">
+						<span id="article_info_block">
+							<a href="/article/2" id="author_name" class="spefont" target="_blank">Kyles Light</a> · 
+							<span id="article_date" class="spefont">{{ article_date }}</span>
+						</span>
+					</div>
+					<p><em> 本文在 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank">署名-非商业性使用-相同方式共享 3.0</a> 版权协议下发布, 转载请注明出自 <a href="http://kyleslight.net/" target="_blank">kyleslight.net</a> </em></p>
+					<hr>
 				</div>
-				<hr>
-				<p>（ 本文在 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank">署名-非商业性使用-相同方式共享 3.0</a> 版权协议下发布, 转载请注明出自 <a href="http://kyleslight.net/" target="_blank">kyleslight.net</a> ）</p>
 			</div>
 			<div id="writing">
 				{% raw maintext %}

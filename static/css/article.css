@@ -207,6 +207,14 @@ a.spearticlelisttitle:hover{
 	background: rgba(102,136,0,1);
 }
 
+.glyphicon {
+	font-size: 15px;
+}
+
+.statement-info {
+	display: none;
+}
+
 #writing{
 	overflow-x: auto;
 	font-family: "Verdandi Modern","Georgia","Verdandi Sung";
@@ -251,7 +259,7 @@ a.spearticlelisttitle:hover{
 
 #store_author_container{
 	display: block;
-	height: 60px;
+	height: 40px;
 }
 
 #author_img{
@@ -264,7 +272,10 @@ a.spearticlelisttitle:hover{
 #article_info_block{
 	padding: 10px 10px;
 	margin-top: -11px;
-	float: left;
+}
+
+.article-info {
+	margin-bottom: 10px;
 }
 
 .MathJax_SVG_Display {

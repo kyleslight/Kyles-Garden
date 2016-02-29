@@ -1,5 +1,7 @@
 $(document).ready(function(){
-	$("#writing h1").eq(0).after($("#store_author").html());
+	$title = $("#writing h1").eq(0);
+	$title.append(' <a class="glyphicon glyphicon-info-sign statement-toggle" href="#"></a>');
+	$title.after($("#store_author").html());
 
 	get_article_index();
 
@@ -57,6 +59,10 @@ $(document).ready(function(){
 		if (top > 0.1*$(window).height()) {
 			$(".articlelist").animate({opacity:0.3}, 1000);
 		}
+	});
+	$('.statement-toggle').click(function () {
+		$('.statement-info').stop().fadeToggle();
+		return false;
 	});
 	remove_block();
 
