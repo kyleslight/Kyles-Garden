@@ -61,8 +61,23 @@
 							<span id="article_date" class="spefont">{{ article_date }}</span>
 						</span>
 					</div>
+					<div class="sm visible-sm-block visible-xs-block collection-info">
+						<div class="collection-title"> <strong>{{ collection['title'] }}</strong> 中的其他文章</div>
+						<div class="collection-list">
+							{% for collection_article in collection_articles %}
+								{% if str(collection_article['id']) == str(aid) %}
+									<li>
+										<span href="#">{{ collection_article['title'] }}</span>
+									</li>
+								{% else %}
+									<li>
+										<a href="/article/{{ collection_article['id'] }}">{{ collection_article['title'] }}</a>
+									</li>
+								{% end %}
+							{% end %}
+						</div>
+					</div>
 					<p><em> 本文在 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank">署名-非商业性使用-相同方式共享 3.0</a> 版权协议下发布, 转载请注明出自 <a href="http://kyleslight.net/" target="_blank">kyleslight.net</a> </em></p>
-					<hr>
 				</div>
 			</div>
 			<div id="writing">
