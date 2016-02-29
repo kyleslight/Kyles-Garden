@@ -233,7 +233,7 @@ a.expandaddcollect:hover, a.deletethisbook:hover{
 }
 
 span.MathJax_SVG{
-	display: none !important;
+	/*display: none !important;*/
 }
 
 .arttitle{
