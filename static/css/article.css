@@ -28,6 +28,10 @@ div.sharereadwrap{
 	list-style: disc;
 }
 
+.writing ul, .writing ol {
+	overflow-x: auto;
+}
+
 .articlelist{
 	float: left;
 	width: 250px;
