@@ -141,7 +141,7 @@ a#submitmodifiedtitle{
 .collectionarticle{
 	padding: 10px;
 	padding-left: 15px;
-	padding-bottom: 5px;
+	padding-bottom: 0;
 	border-bottom: 1px solid #CCC;
 }
 
@@ -207,9 +207,10 @@ a.modifyarticle:hover, a.deletearticle:hover{
 }
 
 a.article_h2{
-	padding-left: 32px;
+	padding-left: 30px;
 	font-size: 0.8em;
 	margin-left: -15px;
+	background: rgba(230,230,230,0.3);
 }
 
 a.article_h2:hover{
@@ -217,7 +218,6 @@ a.article_h2:hover{
 }
 
 a.articlelisttitle{
-	border-top: 1px dashed #CCC;
 	margin-left: -15px;
 	margin-right: -10px;
 }
