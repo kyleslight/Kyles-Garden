@@ -87,7 +87,7 @@
 		<div class="largearticlelist">
 			{% for article in articles %}
 				<div class="largearticle hidden-sm hidden-xs">
-					<div href="/article/{{ article['collection_first_article'] }}" class="article clearfix" onclick="window.location='/article/{{ article['collection_first_article'] }}';">
+					<div href="/article/{{ article['id'] }}" class="article clearfix" onclick="window.location='/article/{{ article['id'] }}';">
 						<div class="timecontainer">
 							{% if article['insert_time'] %}
 							<li class="artyear">{{ article['insert_time'].year }}</li>
