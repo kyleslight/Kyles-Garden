@@ -28,6 +28,11 @@
 	{% end %}
 </head>
 <body>
+    {% block shareImage %}
+        <div style='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
+            <img src="{{ static_url('image/ky.png')}}" width='700'>
+        </div>
+    {% end %}
 	<div class="wrap">
 		<!-- header -->
 		{% block header %}
@@ -61,9 +66,6 @@
            		<a href="#" id="loginsubmit">Sign in</a>
 
            	</form>
-            {% end %}
-            {% block shareImage %}
-                <img style="display: none" src="{{ static_url('image/favicon.ico') }}" alt="">
             {% end %}
 			{% block main %}
 			{% end %}
