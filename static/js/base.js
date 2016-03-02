@@ -66,14 +66,14 @@ $(document).ready(function(){
 
 
         $.postJSON("/login", {'name' : username, 'password' : password}, function(){
-            window.location = '/';
+            window.location = window.location;
         });
 
         return false;
     });
 
-    $(window).keypress('u', function(e){
-        if (e.ctrlKey) {
+    $(document).keypress(function(e){
+        if (e.ctrlKey && e.keyCode == 21) {
             $(".logbox").fadeToggle();
         };
     })

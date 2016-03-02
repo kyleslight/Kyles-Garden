@@ -22,12 +22,6 @@
 	<link rel="stylesheet" href="{{ static_url("css/github.css") }}" >
 	<script src="{{ static_url("js/highlight.js") }}"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
-	<script type="text/javascript">
-		// Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
-		// Preview.callback.autoReset = true;  // make sure it can run more than once
-		// Preview.Init();
-		// Preview.Update();
-	</script>
 	{% block custom_css %}
 	{% end %}
 	{% block custom_js %}
@@ -68,6 +62,9 @@
 
            	</form>
             {% end %}
+            {% block shareImage %}
+                <img style="display: none" src="{{ static_url('image/favicon.ico') }}" alt="">
+            {% end %}
 			{% block main %}
 			{% end %}
 		</div>
@@ -90,7 +87,8 @@
     		TeX: { equationNumbers: {autoNumber: "AMS"},
     				extensions: ["autobold.js","AMSmath.js", "AMSsymbols.js"],
     			 },
-    		SVG:{scale:120}
+    		SVG:{scale:120},
+    		showMathMenu: false
   		});
 	</script>
 </body>

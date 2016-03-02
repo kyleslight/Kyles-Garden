@@ -43,14 +43,14 @@
 	<script type="text/javascript">
 		$("[type='math/tex']").prev().remove();
 		$("[type='math/tex; mode=display']").prev().remove();
-		$(window).keydown(function(e){
-	        if (e.ctrlKey && e.keyCode == 17) {
-	        	var pathName = window.location.pathname;
+		$(document).keydown(function(e) {
+			if(e.ctrlKey && e.keyCode == 71) {
+				var pathName = window.location.pathname;
 	        	var pre = pathName.slice(0, 7);
 	        	var suf = pathName.slice(7);
 	        	window.location.pathname = pre + 'edit/' + suf;
-	        };
-	    })
+			}
+		});
 	</script>
 {% end %}
 
