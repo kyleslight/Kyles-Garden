@@ -74,7 +74,7 @@
 		<div class="articlelist">
 			{% for article in articles %}
 				<div class="sm visible-sm-block visible-xs-block">
-					<div href="/article/{{ article['collection_first_article'] }}" class="article clearfix" onclick="window.location='/article/{{ article['collection_first_article'] }}';">
+					<div href="/article/{{ article['id'] }}" class="article clearfix" onclick="window.location='/article/{{ article['id'] }}';">
 						<div class="littleartmain">
 							<h1 class="arttitle"><a href="/article/{{ article['id'] }}" class="spefont">{{ article['title'] }}</a></h1>
 							<div class="artfrom">来自  <a href="/article/{{ article['collection_first_article'] }}" class="artcollection">{{ article['book_title'] }} - {{ article['collection_title'] }}</a> 中的文章</div>
