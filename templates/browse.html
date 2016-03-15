@@ -14,9 +14,13 @@
 {% end %}
 
 {% block custom_js %}
-	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG"></script>
-	<!-- // <script type="text/javascript" src="{{ static_url("js/load.js") }}"></script> -->
+	<!-- // <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG"></script> -->
+	<script type="text/javascript" src="{{ static_url("js/load.js") }}"></script>
 	<script type="text/javascript" src="{{ static_url("js/browse.js") }}"></script>
+	<script>
+		// $("[type='math/tex']").prev().remove();
+		// $("[type='math/tex; mode=display']").prev().remove();
+	</script>
 {% end %}
 
 {% block main %}

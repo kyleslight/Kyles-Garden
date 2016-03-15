@@ -82,8 +82,9 @@ function removeMathjaxBlocks () {
 	// 	console.log(latexText);
 	// });
 	// $('.MathJax_SVG_Display').remove();
-	$('.MathJax_SVG_Display').remove();
-	$('.MathJax_SVG').remove();
+	// $('.MathJax_SVG_Display').remove();
+	// $('.MathJax_SVG').remove();
+	$("[type='math/tex'], [type='math/tex; mode=display']").remove();
 }
 
 function get_preview_content(){

@@ -64,7 +64,7 @@ $(document).ready(function(){
 		$('.statement-info').stop().fadeToggle();
 		return false;
 	});
-	remove_block();
+	// remove_block();
 
 });
 
@@ -89,6 +89,6 @@ function get_article_index(){
 }
 
 function remove_block(){
-	$("[type='math/tex']").prev().remove();
-	$("[type='math/tex; mode=display']").prev().remove();
+	// $("[type='math/tex']").prev().remove();
+	// $("[type='math/tex; mode=display']").prev().remove();
 }
