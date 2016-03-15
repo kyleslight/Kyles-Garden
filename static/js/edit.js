@@ -5,6 +5,7 @@ $(document).ready(function(){
 
 	$(".articlesubmit").on('click', function(){
 		define_heading_id();
+		// removeMathjaxBlocks();
 		var theform = document.getElementById("editdata");
 		var previewcon = document.getElementById("previewtextcontainer");
 		previewcon.innerHTML = get_preview_content();
@@ -81,6 +82,12 @@ function define_heading_id() {
 			$(this).attr('id', $next.text().slice(1));
 			$(this).next().remove();
 		}
+	});
+}
+
+function removeMathjaxBlocks () {
+	$('.MathJax_SVG_Display').each(function () {
+		$(this).next().remove();
 	});
 }
 

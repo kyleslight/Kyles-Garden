@@ -5,6 +5,7 @@ $(document).ready(function(){
 
 	$(".articlesubmit").on('click', function(){
 		define_heading_id();
+		removeMathjaxBlocks();
 		var theform = document.getElementById("editdata");
 		$('#previewtextcontainer').val(get_preview_content());
 		$('#arttitle').val(get_title());
@@ -20,6 +21,9 @@ $(document).ready(function(){
 
 		$('#artdes').val(description);
 		$('#ori_text').val($('#writing').val());
+
+
+
 		theform.submit();
 	})
 })
@@ -69,6 +73,12 @@ function define_heading_id() {
 			$(this).attr('id', $next.text().slice(1));
 			$(this).next().remove();
 		}
+	});
+}
+
+function removeMathjaxBlocks () {
+	$('.MathJax_SVG_Display').each(function () {
+		$(this).next().remove();
 	});
 }
 
