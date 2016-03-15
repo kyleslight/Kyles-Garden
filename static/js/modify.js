@@ -22,8 +22,6 @@ $(document).ready(function(){
 		$('#artdes').val(description);
 		$('#ori_text').val($('#writing').val());
 
-
-
 		theform.submit();
 	})
 })
@@ -77,9 +75,15 @@ function define_heading_id() {
 }
 
 function removeMathjaxBlocks () {
-	$('.MathJax_SVG_Display').each(function () {
-		$(this).next().remove();
-	});
+	// $('.MathJax_SVG_Display').each(function () {
+	// 	var latexText = $(this).next().text();
+	// 	$(this).next().remove();
+	// 	$(this).after(latexText);
+	// 	console.log(latexText);
+	// });
+	// $('.MathJax_SVG_Display').remove();
+	$('.MathJax_SVG_Display').remove();
+	$('.MathJax_SVG').remove();
 }
 
 function get_preview_content(){
