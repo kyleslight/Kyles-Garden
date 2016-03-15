@@ -64,7 +64,7 @@ $(document).ready(function(){
 		$('.statement-info').stop().fadeToggle();
 		return false;
 	});
-	// remove_block();
+	remove_block();
 
 });
 
