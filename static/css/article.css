@@ -24,6 +24,7 @@ div.sharereadwrap{
 	margin-top: 15px;
 }
 
+
 .readarea li{
 	list-style: disc;
 }
@@ -161,10 +162,13 @@ span.MathJax_SVG_Processed{
 	display: inline-block !important;
 }
 
-.MathJax_SVG>SVG{
+.MathJax_SVG svg{
 	display: none !important;
 }
 .MathJax_SVG>:first-child{
+	display: inline-block !important;
+}
+.MathJax_SVG>:nth-child(1){
 	display: inline-block !important;
 }
 

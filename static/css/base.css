@@ -84,10 +84,6 @@ p code{
 	background: white;
 }
 
-[aria-hidden="true"] {
-	display: none;
-}
-
 .wrap{
 	margin: 0 auto;
 	border-bottom-left-radius: 4px;
