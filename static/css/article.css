@@ -154,6 +154,10 @@ a#submitmodifiedtitle{
 	margin-right: -10px;
 }
 
+div.MathJax_SVG_Display {
+	display: none;
+}
+
 div.MathJax_SVG_Processed{
 	display: block !important;
 }

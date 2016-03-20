@@ -87,8 +87,3 @@ function get_article_index(){
 
 	$(".spearticlelisttitle").eq(0).after(article_index_block);
 }
-
-function remove_block(){
-	// $("[type='math/tex']").prev().remove();
-	// $("[type='math/tex; mode=display']").prev().remove();
-}
