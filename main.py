@@ -455,6 +455,11 @@ class TestmathHandler(BaseHandler):
 	def get(self):
 		self.render('testmath.html')
 
+class PsesudoElementHandler(BaseHandler):
+    def get(self):
+    	self.write('<p>TSSSSSSSS</p>')
+
+
 
 
 settings = dict(
@@ -493,6 +498,7 @@ if __name__ == "__main__":
 			(r'/delete/article/(\w+)', ArticleDeleteHandler),
 			(r'/book/add', BookCreateHandler),
 			(r'/collection/add', CollectionCreateHandler),
+			(r'/pseudoElement', PsesudoElementHandler),
 			(r'/testmath', TestmathHandler)], **settings
 		
 		)
