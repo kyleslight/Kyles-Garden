@@ -457,7 +457,7 @@ class TestmathHandler(BaseHandler):
 
 class PsesudoElementHandler(BaseHandler):
     def get(self):
-    	self.write('<p>TSSSSSSSS</p>')
+    	self.write('<p class="testPseudo">TSSSSSSSS</p>')
 
 
 
