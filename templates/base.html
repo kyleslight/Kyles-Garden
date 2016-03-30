@@ -33,6 +33,9 @@
             <img src="{{ static_url('image/ky.png')}}" width='700'>
         </div>
     {% end %}
+    {% block shareLink %}
+        <a style='display: none' href="/sharecollection"></a>
+    {% end %}
 	<div class="wrap">
 		<!-- header -->
 		{% block header %}
