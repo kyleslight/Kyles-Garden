@@ -1063,7 +1063,7 @@ Parser.prototype.tok = function() {
 
 function escape(html, encode) {
   return html
-    .replace(!encode ? /&(?!#?\w+;)/g : /&/g, '&amp;')
+    // .replace(!encode ? /&(?!#?\w+;)/g : /&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
