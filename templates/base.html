@@ -14,6 +14,21 @@
 	<link rel="stylesheet" type="text/css" href="{{ static_url("css/base.css") }}">
 	<link rel="shortcut icon" href="{{ static_url("image/favicon.ico") }}" type="image/vnd.microsoft.icon">
 	<link rel="icon" href="{{ static_url("image/favicon.ico") }}" type="image/vnd.microsoft.icon">
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            extensions: ["tex2jax.js"],
+            // showProcessingMessages: false,
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+            },
+            TeX: {
+                    extensions: ["autobold.js","AMSmath.js", "AMSsymbols.js"],
+                 },
+            skipTags: ["pre","code","script", "textarea"],
+        });
+    </script>
 	<script type="text/javascript" src="{{ static_url("js/jquery.js") }}"></script>
 	<script type="text/javascript" src="{{ static_url("js/bootstrap.min.js") }}"></script>
 	<script type="text/javascript" src="{{ static_url("js/marked.js") }}"></script>
@@ -84,17 +99,5 @@
 		</div>
 		{% end %}
 	</div>
-
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            showProcessingMessages: false,
-            tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] },
-            TeX: {
-                    extensions: ["autobold.js","AMSmath.js", "AMSsymbols.js"],
-                 },
-            // SVG:{scale:120},
-            showMathMenu: true
-        });
-    </script>
 </body>
 </html>

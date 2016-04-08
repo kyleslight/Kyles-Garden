@@ -77,8 +77,14 @@ var Preview = {
     		var text = document.getElementById("writing").value;
     		if (text === this.oldtext) return;
     		text = this.Escape(text);                       //Escape tags before doing stuff
+
+        text = text.split('```').map(function(content, index){
+          return (index % 2 === 1 ? content.replace(/\$/g, 'YOUWILLNEVERPUTDOLLAR') : content);
+        }).join('```');
+
     		this.buffer.innerHTML = this.oldtext = text;
     		this.mjRunning = true;
+
     		MathJax.Hub.Queue(
       			["Typeset",MathJax.Hub,this.buffer],
       			["PreviewDone",this],
@@ -96,8 +102,7 @@ var Preview = {
           text = this.buffer.innerHTML;
       // replace occurrences of &gt; at the beginning of a new line
       // with > again, so Markdown blockquotes are handled correctly
-          text = text.replace(/&gt;/mg, '>').replace(/&lt;/mg, '<').replace(/&#39;/g, "'");
-
+          text = text.replace(/&gt;/mg, '>').replace(/&lt;/mg, '<').replace(/&#39;/g, "'").replace(/YOUWILLNEVERPUTDOLLAR/g, '$');
           this.buffer.innerHTML = marked (text);
           if (location.pathname.slice(0, 5) == '/edit' || location.pathname.slice(0, 11) == '/share/edit') {
             this.SwapBuffers();
