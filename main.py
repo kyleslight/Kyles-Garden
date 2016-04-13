@@ -455,6 +455,10 @@ class TestmathHandler(BaseHandler):
 	def get(self):
 		self.render('testmath.html')
 
+class TestLiKyHandler(BaseHandler):
+	def get(self):
+		self.render('testliky.html')
+
 class PsesudoElementHandler(BaseHandler):
     def get(self):
     	self.write('<p class="testPseudo">TSSSSSSSS</p>')
@@ -499,7 +503,8 @@ if __name__ == "__main__":
 			(r'/book/add', BookCreateHandler),
 			(r'/collection/add', CollectionCreateHandler),
 			(r'/pseudoElement', PsesudoElementHandler),
-			(r'/testmath', TestmathHandler)], **settings
+			(r'/testmath', TestmathHandler),
+			(r'/testliky', TestLiKyHandler)], **settings
 		
 		)
 	http_server = httpserver.HTTPServer(app)
