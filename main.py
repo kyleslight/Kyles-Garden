@@ -455,11 +455,11 @@ class TestmathHandler(BaseHandler):
 	def get(self):
 		self.render('testmath.html')
 
-class TestLiKyHandler(BaseHandler):
+class LiKyHandler(BaseHandler):
 	def get(self):
 		self.set_header('Content-Type', '')
-		template_path = os.path.join(os.path.dirname(__file__), "templates")
-		with open(template_path + "/liky.html", 'r') as file:
+		liky_path = os.path.join(os.path.dirname(__file__), "liky")
+		with open(liky_path + "/liky.html", 'r') as file:
 			self.write(file.read())
 
 
@@ -502,7 +502,7 @@ if __name__ == "__main__":
 			(r'/book/add', BookCreateHandler),
 			(r'/collection/add', CollectionCreateHandler),
 			(r'/testmath', TestmathHandler),
-			(r'/liky', TestLiKyHandler)], **settings
+			(r'/liky', LiKyHandler)], **settings
 		
 		)
 	http_server = httpserver.HTTPServer(app)
