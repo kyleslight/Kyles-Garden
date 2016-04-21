@@ -458,8 +458,8 @@ class TestmathHandler(BaseHandler):
 class LiKyHandler(BaseHandler):
 	def get(self):
 		self.set_header('Content-Type', '')
-		liky_path = os.path.join(os.path.dirname(__file__), "liky")
-		with open(liky_path + "/liky.html", 'r') as file:
+		template_path = os.path.join(os.path.dirname(__file__), "templates")
+		with open(template_path + "/liky.html", 'r') as file:
 			self.write(file.read())
 
 
