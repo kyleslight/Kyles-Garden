@@ -462,9 +462,6 @@ class LiKyHandler(BaseHandler):
 		with open(template_path + "/liky.html", 'r') as file:
 			self.write(file.read())
 
-
-
-
 settings = dict(
     		cookie_secret = base64.b64encode(uuid.uuid4().bytes + uuid.uuid4().bytes),
     		xsrf_cookies = True,
