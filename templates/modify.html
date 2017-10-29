@@ -20,11 +20,14 @@
 		<script type="text/javascript" src="{{ static_url("js/viz.js") }}"></script>
 	{% end %}
 	<script type="text/javascript">
-		console.log(MathJax.Hub.config.skipTags);
-		MathJax.Hub.Config({
-			skipTags: ["pre","code","script", "textarea"]
-		});
-		console.log(MathJax.Hub.config.skipTags);
+		try {
+			MathJax.Hub.Config({
+				skipTags: ["pre","code","script", "textarea"]
+			});
+		} catch (err) {
+			// ignore error
+		}
+
 		Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
 		Preview.callback.autoReset = true;  // make sure it can run more than once
 		Preview.Init();
