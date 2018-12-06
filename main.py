@@ -95,7 +95,7 @@ class BrowseHandler(BaseHandler):
 		    self.write(json_encode({'message' : 'login success'}))
 		else:
 			self.write(json_encode({'message' : 'bad login'}))
-	
+
 
 class ArticleHandler(BaseHandler):
 	def get(self, aid):
@@ -185,7 +185,7 @@ class BookModifyHandler(BaseHandler):
 class BookDeleteHandler(BaseHandler):
 	@tornado.web.authenticated
 	def get(self, bid):
-		
+
 		test_database = data.DatabaseHandler("test")
 		ins = "select id from collect where book_id = %s" %bid
 		collection_ids = test_database.fetch_all(ins)
@@ -251,7 +251,7 @@ class CollectionModifyHandler(BaseHandler):
 class CollectionDeleteHandler(BaseHandler):
 	@tornado.web.authenticated
 	def get(self, cid):
-		
+
 		test_database = data.DatabaseHandler("test")
 		ins = "delete from article_6 where collect_id = %s" %cid
 		para = ()
@@ -305,7 +305,7 @@ class ArticleCreateHandler(BaseHandler):
 		ins = "insert into article_6(title, description, content, ori_text, collect_id, order_id, insert_time) value(%s, %s, %s, %s, %s, %s, %s)"
 		para = (title, description, maintext, ori_text, collection_id, order, insert_time)
 		result = test_database.exe_ins(ins, para)
-		
+
 
 class ArticleTobeModifyHandler(BaseHandler):
 	@tornado.web.authenticated
@@ -355,7 +355,7 @@ class ArticleModifyHandler(BaseHandler):
 class ArticleDeleteHandler(BaseHandler):
 	@tornado.web.authenticated
 	def get(self, aid):
-		
+
 		test_database = data.DatabaseHandler('test')
 		ins = "delete from article_6 where id = %s" %aid
 		para = ()
@@ -432,7 +432,7 @@ class ShareModifyHandler(BaseHandler):
 
 class  ShareCollectionHandler(BaseHandler):
 	def get(self):
-		
+
 		test_database = data.DatabaseHandler("test")
 		ins = "select title, share_id from share order by id desc"
 
@@ -460,6 +460,13 @@ class LiKyHandler(BaseHandler):
 		self.set_header('Content-Type', '')
 		template_path = os.path.join(os.path.dirname(__file__), "templates")
 		with open(template_path + "/liky.html", 'r') as file:
+			self.write(file.read())
+
+class SuikaHandler(BaseHandler):
+    	def get(self):
+		self.set_header('Content-Type', '')
+		template_path = os.path.join(os.path.dirname(__file__), "templates")
+		with open(template_path + "/birthday-for-suika.html", 'r') as file:
 			self.write(file.read())
 
 settings = dict(
@@ -499,8 +506,9 @@ if __name__ == "__main__":
 			(r'/book/add', BookCreateHandler),
 			(r'/collection/add', CollectionCreateHandler),
 			(r'/testmath', TestmathHandler),
-			(r'/liky', LiKyHandler)], **settings
-		
+			(r'/liky', LiKyHandler),
+            (r'/birthday-for-suika', SuikaHandler)], **settings
+
 		)
 	http_server = httpserver.HTTPServer(app)
 	http_server.listen(options.port)
