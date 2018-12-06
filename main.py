@@ -17,7 +17,7 @@ import base64, uuid
 
 from tornado.escape import json_encode, json_decode
 
-define("port", default = 8000, help = "run on given port", type = int)
+define("port", default = 80, help = "run on given port", type = int)
 define("debug", default = True, type = bool)
 define("host", default = "localhost", type = str)
 
@@ -507,7 +507,8 @@ if __name__ == "__main__":
 			(r'/collection/add', CollectionCreateHandler),
 			(r'/testmath', TestmathHandler),
 			(r'/liky', LiKyHandler),
-            (r'/birthday-for-suika', SuikaHandler)], **settings
+            (r'/birthday-for-suika', SuikaHandler)
+        ], **settings
 
 		)
 	http_server = httpserver.HTTPServer(app)

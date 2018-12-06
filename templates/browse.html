@@ -14,7 +14,7 @@
 {% end %}
 
 {% block custom_js %}
-	<!-- // <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG"></script> -->
+	<!-- // <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_SVG"></script> -->
 	<script type="text/javascript" src="{{ static_url("js/load.js") }}"></script>
 	<script type="text/javascript" src="{{ static_url("js/browse.js") }}"></script>
 	<script>
@@ -43,7 +43,7 @@
 					</div>
 					{% end %}
 				</div>
-				
+
 				{% if SU %}
 				<div class="addcollectbox none" id="addcollectbox_{{ book['id'] }}">
 					<input type="text" class="addcollecttitle" id="addcollecttitle_{{ book['id'] }}">
@@ -59,7 +59,7 @@
 							<a href="/article/{{ bookcollection['articleid'] }}" class="collect">{{ bookcollection['title'] }}</a>
 						{% end %}
 					{% end %}
-				</div>	
+				</div>
 			</div>
 			{% end %}
 
@@ -74,7 +74,7 @@
 		</div>
 
 
-		
+
 		<div class="articlelist">
 			{% for article in articles %}
 				<div class="sm visible-sm-block visible-xs-block">

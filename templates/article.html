@@ -14,7 +14,7 @@
 {% end %}
 
 {% block custom_js %}
-	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 	<script type="text/javascript" src="{{ static_url("js/load.js") }}"></script>
 	<script type="text/javascript" src="{{ static_url("js/article.js") }}"></script>
 {% end %}
@@ -49,14 +49,14 @@
 			<a href="/edit/article/{{ aid }}" class="modifyarticle">Modify this Article</a>
 			<a href="/delete/article/{{ aid }}" class="deletearticle">Delete this Article</a>
 			{% end %}
-		
+
 		</div>
 		<div class="readareawrap container">
 			<div id="store_author" class="none">
 				<div class="clearfix article-info">
 					<img src="{{ static_url("image/author.jpg") }}" alt="author_img" id="author_img">
 					<span id="article_info_block">
-						<a href="/article/2" id="author_name" class="spefont" target="_blank">Kyles Light</a> · 
+						<a href="/article/2" id="author_name" class="spefont" target="_blank">Kyles Light</a> ·
 						<span id="article_date" class="spefont">{{ article_date }}</span>
 					</span>
 				</div>
