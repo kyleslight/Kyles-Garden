@@ -17,7 +17,7 @@ import base64, uuid
 
 from tornado.escape import json_encode, json_decode
 
-define("port", default = 80, help = "run on given port", type = int)
+define("port", default = 8080, help = "run on given port", type = int)
 define("debug", default = True, type = bool)
 define("host", default = "localhost", type = str)
 
@@ -226,7 +226,7 @@ class CollectionCreateHandler(BaseHandler):
 		collection_id = test_database.fetch_one(ins_3)['id']
 
 		collection_info = {'id' : collection_id, 'title' : title, 'book_id' : book_id}
- 		self.write(json_encode(collection_info))
+		self.write(json_encode(collection_info))
 
 class CollectionModifyHandler(BaseHandler):
 	@tornado.web.authenticated
@@ -412,11 +412,11 @@ class ShareTobeModifyHandler(BaseHandler):
 class ShareModifyHandler(BaseHandler):
     @tornado.web.authenticated
     def post(self, sid):
-    	self.modify(sid)
+        self.modify(sid)
 
-    	test_database = data.DatabaseHandler("test")
-    	url = "/share/%s" %sid
-    	self.redirect(url)
+        test_database = data.DatabaseHandler("test")
+        url = "/share/%s" %sid
+        self.redirect(url)
 
     def modify(self, sid):
 		title = self.get_argument('arttitle').encode('utf-8')
