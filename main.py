@@ -462,11 +462,11 @@ class LiKyHandler(BaseHandler):
 		with open(template_path + "/liky.html", 'r') as file:
 			self.write(file.read())
 
-class SuikaHandler(BaseHandler):
+class SiaHandler(BaseHandler):
     	def get(self):
 		self.set_header('Content-Type', '')
 		template_path = os.path.join(os.path.dirname(__file__), "templates")
-		with open(template_path + "/birthday-for-suika.html", 'r') as file:
+		with open(template_path + "/birthday-for-sia.html", 'r') as file:
 			self.write(file.read())
 
 settings = dict(
@@ -507,7 +507,7 @@ if __name__ == "__main__":
 			(r'/collection/add', CollectionCreateHandler),
 			(r'/testmath', TestmathHandler),
 			(r'/liky', LiKyHandler),
-            (r'/birthday-for-suika', SuikaHandler)
+            (r'/birthday-for-sia', SiaHandler)
         ], **settings
 
 		)
